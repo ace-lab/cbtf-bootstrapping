@@ -1,6 +1,6 @@
 \section{Background}
 
-In 2020, some of us at UC Berkeley initiated a project to pivot more
+In 2020, some of us at UC~Berkeley initiated a project to pivot more
 campus courses towards mastery learning [cite]. A key component of
 that approach is frequent low-stakes assessments with flexibility in
 scheduling and the possibility of re-takes [cite], so our long term
@@ -9,10 +9,10 @@ streamlined [cite my draft] computer-based testing facilities (CBTFs)
 as demonstrated at the University of Illinois at Urbana-Champaign
 [cite Craig’s paper].
 
-We began with initial internal seed funding of around $75,000 and
+We began with initial internal seed funding of around \$75,000 and
 later a pair of more expansive mastery-learning grants that covered
 not only CBTF operations but research and content development related
-to mastery learning, each around $600,000.
+to mastery learning, each around \$600,000.
 
 Our initial CBTF pilot involved a single software engineering course
 of around 200 students, using a pair of shared instructional labs as
@@ -20,13 +20,12 @@ our proto-CBTF.
 
 This report summarizes our experience in bootstrapping this
 effort. Other reports discuss why the UIUC approach to computer-based
-testing differs from a generalized proctoring facility [cite] and our
-experience scaling up from the prototype described here to our current
-scenario: a 30-seat dedicated CBTF with a 100-seat CBTF opening in
-Fall 2026, currently serving over 20 courses and over 5,500 enrolled
-students. Much of what we describe shares common elements with Downey
-et al.'s recent experience report doing something similar at
-UC~Riverside~\cite{downey-cbtf}.
+testing differs from a generalized proctoring facility~\cite{fox-cbtf-not-proctoring}
+and our experience scaling up from the prototype described here to our
+current scenario: a 30-seat dedicated CBTF with a 100-seat CBTF
+opening in Fall 2026, currently serving over 20 courses and over 5,500
+enrolled students. Our experience has much in common with that
+reported by  Downey et al.\ at UC~Riverside~\cite{downey-cbtf}.
 
 
 \subsection{Design assumptions and Initial Conditions}
@@ -41,21 +40,56 @@ enrollments of 1,000 or more.  Like Downey et al.~\cite{downey-cbtf},
 our goal was to support testing for entire courses,
 not just students with
 special proctoring needs.
-This  goal leads to  different 
-operating assumptions than for a special-purpose or a generalized proctoring
+This  goal leads to 
+scale-friendly operating assumptions that are very different from
+those that would obtain for a special-purpose or a generalized proctoring
 center~\cite{fox-cbtf-not-proctoring}.  
 
-\item PL, content authoring.  Mostly simple q's (define), a few
-  bespoke ones
+\item We found much to admire about the
+  PrairieLearn\footnote{prairielearn.org} assessment authoring and
+  delivery system and intended to use it.  In particular, although 
+  Canvas is the official campuswide Learning Management System, we
+  found its quiz abilities impoverished with respect to both the kinds
+  of questions that can be authored and the operational facilities for
+  delivering them in an environment designed to thwart cheating.  We
+  discuss this a bit further in Section~\ref{sec:canvas}.
 
-
+\item If the pilot succeeded, we planned to expand to other courses
+  gradually, and eventually turn over CBTF operations to a central
+  campus unit; at our institution, the most likely home would be
+  Research, Teaching, and Learning (RTL), which among other
+  responsibilities stewards our instructional computing facilities and
+  oversees many campuswide software deployments (including Canvas).
 
 \end{itemize}
 
-Starting assumptions – stack, CTBF, cite Kelly paper
+\subsection{The Pilot Course}
 
+225? students (217 took final in CBTF; others/DSP?)
+
+quizzes - remote on PL.  We found cheating because of this!
+
+final exam (Did we have a midterm?)
 
 \subsection{Shared Spaces}
+
+\begin{figure*}
+  \caption{\label{fig:spaces}%
+    Our two shared lab spaces are similarly configured with 27 (left)
+    and 30 (right) desktop Windows PCs with Ethernet networking on
+    long shared tables.
+  }
+  \includegraphics[width=\textwidth]{figs/labs}
+\end{figure*}
+
+As Figure~\ref{fig:spaces} shows, the two shared labs available to us
+are similarly configured and designed more for lab work than exam
+administration.
+At the time, the computers were running Windows~10, and some were
+several PC generations old.
+The lab is fairly heavily scheduled so we had to book our time well in
+advance for the midterm (2 hours) and final exam (3 hours) 
+
 
 2 shared spaces - instructional labs centrally operated, in 2 diff bldgs
 
