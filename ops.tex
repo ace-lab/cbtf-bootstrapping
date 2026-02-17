@@ -31,16 +31,27 @@ Have 10-15\% spare capacity (~2 machines in a room of 30)
 
 \subsection{Proctors}
 
-Use your TAs at first. It's a pilot. BUT have them act like it's the real thing: don't answer questions.
+We used our TAs and course staff as proctors for the pilot.  (One
+proctor is enough for the small room we had.)  But it's important that the
+processes they use are the same as those you'd use at scale, as much
+as possible.
+Key among these is \emph{not answering clarification questions} that
+students have on the exam, since (especially so with an asynchronous
+exam) it's impossible to be fair about who hears which clarifications.
+Instead, instruct students to make a note on the exam (PrairieLearn
+has a specific feature for this), and if you have time between exam
+shifts, repair the question, and if necessary, apply manual grading
+changes to the cohort of students that experienced the bug.
 
-1 proctor is enough for small rooms
+Make sure proctors know how to access the room, and have practiced the
+precise setup/teardown procedures to leave it as you found it.
 
-Make sure proctors know how to access room, and precise setup/teardown procedures to leave it as you found it
-
-proctors vs tech support vs front-desk
-
-scratch paper
-
+We did not have any ``tech support'' for PrairieLearn or PrairieTest
+outside the small team of people involved in the research pilot and
+the Slack channel for PrairieLearn (which is extremely helpful, but
+much more helpful if you're running hosted PrairieLearn, meaning their
+staff can see your content and configuration if necessary to help you
+troubleshoot problems).
  
 \subsection{Preparation/Messaging to Students}
 
@@ -76,18 +87,56 @@ to be written out by hand or were machine-printed sheets acceptable?
 If the former, was there an exception for students with a disability
 accommodation related to handwriting?  The list goes on and on.)  It
 was obvious that with students in more than one course taking exams
-simultaneously, as 
+simultaneously, as would occur in steady state, any kind of cheat
+sheet would be untenable, so we now have a blanket ``no paper cheat sheets,
+no exceptions'' rule.  Fortunately, PrairieLearn makes it possible to
+both embed a common PDF or HTML cheat sheet in the exam itself, and
+(less obviously) a student-created cheat sheet that has been
+explicitly approved by the instructor and can be made available to
+that particular student during the exam.
 
 
-NO CHEATSHEETS. Headache to validate, won't scale.
+Make sure students know where the room is! It seems obvious but many
+of our students had never had occasion to use one of the shared labs,
+as it was in a building that rarely hosts computer science courses.
 
-Make sure students know where the room is! Seems obvious but...
-
-Make sure building access is not an issue (bldg hours vs CBTF hours). We had to post a proctor at building door because of this.
+Make sure building access is not an issue.  In one case we had to post
+a proctor at the building door because the building required cardkey
+entry after 6PM, and most students did not have cardkey access.
+(Getting cardkey access to a room for a student is a bureaucratic
+procedure that doesn't happen overnight; in our case, it's fine for a
+few proctors, but not for hundreds of students enrolled in a course.)
 
 \subsection{Messaging to Faculty}
 
-can't block it out
+For faculty considering CBTF adoption, the biggest stumbling block has
+been accepting the fact that \emph{not all of their students will take
+the exam at the same time.}
 
-can't rely on sync exams. period. even in a small class. cite my 'not
-proctoring' paper.
+Faculty initially thought they could ``block out'' the CBTF just for
+themselves, or that at least they could block out consecutive sessions
+in a day to minimize the likelihood of information leakage.  With one
+or two courses, you can do this (at great cost in pain, since
+invariably students get sick, forget, no-show, etc., requiring them to
+then make another reservation outside of their course's designated
+``block''), but with more courses, it torpedoes anything resembling
+high-utilization scheduling.  Furthermore, accommodating faculty in
+this way simply encourages them to continue developing exams the old
+way, in which knowledge of specific questions becomes an advantage.
+
+Our consistent message to faculty now is that they cannot do this,
+period.  Even if their course enrollment is smaller than the CBTF
+capacity, we cannot block it for them.  Finding a ``coalition of the
+willing'' who could deal with this restriction allowed us to grow to
+the point where demand now exceeds supply, so we can comfortably
+enforce this restriction.
+\cite{fox-cbtf-not-proctoring} explains other reasons why it is
+important to message to faculty that the CBTF is \emph{not} a general
+proctoring facility that allows them to appraoch exam authoring and
+administration as they have always done but just outsource the
+proctoring; rather, effective use of the CBTF does require some
+workflow changes, but they amortize very well and help is available to
+make the transition.  For example, one of our recent courses had a
+large bank of perhaps 400 questions for use on midterms and exams, and
+are happy with each student getting a random subset (with some
+constraints) as their exam.
