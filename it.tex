@@ -1,34 +1,154 @@
 \section{IT Involvement}
 
-\textbf{Lesson:} Minimize the interface with campus IT to minimize the
-overall number of moving parts
+\textbf{Lesson:} Let PrairieLearn host for you.  
+Understand and then minimize the interface with campus IT, to minimize the
+overall number of moving parts.  There are a few aspects of operations
+that probably only they can handle.
 
 \subsection{Software: PrairieLearn}
 
-Use hosted PL. Univ IT staff are not optimized for this sort of thing. It's open source, but labor cost of ops is real, plus having to manually scale EC2 up and down.
+We initially hosted PrairieLearn ourselves, since it was open source
+and we didn't know if we'd need to make changes to integrate with our
+campus systems.  In retrospect, this was a mistake.
 
+Our IT staff is highly competent and were very cooperative.  However,
+this represented a brand-new set of tools and
+workflows for them.  Extra effort such as this must be charged to some account,
+and even though we had research funds to pay for this, university IT staff time is typically tightly
+budgeted.
 
-Also, reservaitons MUCH simpler (esp. accommodations) if you can use PT.
+We initially thought that our low usage would make it reasonable to
+run locally: only one course actually trying to run CBTF-like exams,
+during which smooth PrairieLearn operation is mission-critical,
+and a few other courses using it for homework and practice, which are
+typically not.  But as soon as more courses began doing CBTF quizzes,
+the manual scaling of Amazon EC2 (Elastic Compute Cloud) resources to
+ensure sufficient capacity quickly became a nuisance, with IT staff
+needing a 24-hour heads up before any scale-up period.  PrairieLearn
+hosting would have made this transparent.
 
+In addition, the open-source software does not include PrairieTest for
+scheduling the CBTF.  Even with only one course to schedule, we
+underestimated how useful PrairieTest would be, as we would discover
+when we tried to do reservations ourselves.
 
-Caveat: external grading costs >2x the price of not
-
-
-No: lockdown browser, etc
 
 \subsection{Hardware}
 
+PrairieTest exams require only a browser; any heavy lifting such as
+code autograding is done on the server side by managing Docker
+containers (another reason to have PrairieLearn host for you, although
+as a caveat, a course requiring custom external grading costs more
+than 2x per seat as one that doesn't).
+The computers in the shared labs are several generations old and
+were running Windows 10 at the time, and were fine for the task, since
+PrairieLearn does a good job of adhering to widely-adopted Web
+standards for the browser GUI and (importantly) accessibility.
+When it came time to outfit a new 30-seat room as a full-time CBTF, we
+purchased \$500 computers on Amazon.
+More recently, in another shared lab we've used 15-year-old computers recently upgraded to
+Windows 11, and they are still satisfactory.
+In our shared labs, the computers were centrally managed, and each had
+a set of ``login profiles'' that had different software installed.  We
+arranged with IT to create a new profile for PrairieLearn that 
+disables USB ports, to prevent students bringing USB-borne materials
+to an exam, and has virtually no software installed other than a Web
+browser and some audio files consisting of white noise for students
+who want to block out audio distractions.
 
-We've used ~15yo computers currently running Windows 11. Really all
-you need is a browser, so demands are minimal.
+All of these computers have wired Ethernet; we know better than to
+rely on wi-fi for something so mission-critical.
 
-Do: Use IP firewalling or CIDR-level firewalling 
+\subsection{Networking and 2FA}
 
-Don’t: lockdown browser, etc.
+More important is IP firewalling, either host-level or CIDR-level.
+Firewalling is essential; don't try to use a lockdown browser or
+similar scheme as it gets messy fast.
+The PrairieLearn login profile has the
+necessary firewall rules to block browser access to any web site other
+than PrairieLearn and the sites required for students to login to our
+campus SSO.
 
-Ensure USB ports are disabled
+A major pitfall we did not expect involves 2-factor authentication
+(2FA).  Our IT had contributed code to PrairieLearn to allow federated
+SSO (single sign-on) login via CalNet, our Shibboleth-based
+authentication system.  However, as a matter of campus policy, most
+CalNet-accessible sites trigger a 2FA flow\footnote{\url{https://calnet.berkeley.edu/calnet-2-step}} that requires students to
+use their cell phone to complete login.  This requirement led to
+various failure modes:
 
-Don't rely on wifi
+\begin{itemize}
 
-Caveat: ensure systems needed for campus login, 2FA work properly
+\item Wifi and/or cellular data coverage is weak in the basement where the labs are, so the phone
+  cannot complete the 2FA flow.
+\item The student recently obtained a new cell phone and has not set
+  it up for 2FA.
+\item The student normally uses a different method to complete 2FA,
+  such as a physical USB token, tablet, or touchID-capable laptop,
+  which may not be used in the CBTF.
+
+\end{itemize}
+
+The correct solution for us in our full-time CBTF is to disable 2FA
+for logins on the CBTF's CIDR block.  But this is possible only with
+close cooperation with campus IT (happily, the team responsible for
+2FA and the team responsible for maintaining the shared instructional
+labs are in the same campus unit) and because the full-time CBTF's
+computers have their own CIDR block.
+
+\subsection{Accessibility}
+
+\textbf{Lesson:} There are more accommodations in heaven and earth
+that are dreamt of in your philosophy.  Accessibility goes far beyond
+the capabilities of the software, which in the case of PrairieLearn
+are very good.
+
+Once the pilot was over and we needed to start paying
+PrairieLearn to host the software, as a vendor they needed to meet
+strict standards of accessibility (a11y).  The good news is their software
+does a great job of this, enough to satisfy our very finicky campus review.
+
+However, there are aspects of a11y you must deal with during
+a pilot, such as the physical a11y limitations of the room itself: Can
+  wheelchairs be accommodated?  Standing desks?  Adjustable height
+  desks?  
+  
+Try to get your Disabled Students Program (it has different names at
+different institutions; we'll generically refer to it as DSP) on board
+early.
+We found this challenging
+because initially they were quite defensive at the concept of a CBTF
+serving an entire course, insisting that every seat be accessible, whereas
+our goal was to identify which accommodations
+can be met straightforwardly, and continue handling the rest by
+one-off means.  \emph{Be sure you communicate to your DSP that while you're
+hoping to accommodate a subset of students adequately within the
+constraints of your CBTF, you will still accommodate all students as
+needed, by having others take exams outside your CBTF.}
+
+For example, some students have a ``reduced distraction during exams''
+(RD) accommodation.
+We were dismayed that we couldn't find any single set of rules
+defining the physical parameters of this accommodation in a standard
+way within UC Berkeley, let alone systemwide across the nine UC
+campuses.
+We had
+seen photos of UIUC's CBTF in which a subset of RD testing stations
+were created facing the wall and flanked by tall cubicle partitions
+(to minimize visual distractions) and with noise-cancelling
+headphones provided (to minimize auditory distractions).  In the end,
+we were able to work with our DSP office to specify a configuration involving headphones and view
+partitions that our DSP office agreed would satisfy the RD requirement
+for most students, with the caveat that students who had more
+stringent needs (e.g. ``must take the exam alone in a room'') would
+still be accommodated, just not in the CBTF.
+
+(Our DSP office has a proctoring facility for students needing
+accommodations, but it is vastly oversubscribed.  We had been trying
+from the start to convey the message that by handling ``common''
+accomodations such as reduced distraction and extra time on exams, we
+could relieve the DSP proctoring center of much workload.  It has
+taken a long time to reach this understanding, but as of February 2026, over
+85\% of all exam-related accommodations approved by DSP can be handled
+within our CBTF.)
 
