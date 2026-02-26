@@ -1,11 +1,12 @@
-\section{IT Involvement}
+\section{CBTF Configuration}
 
-\textbf{Lesson:} Let PrairieLearn host for you.  
-Understand and then minimize the interface with campus IT, to minimize the
-overall number of moving parts.  There are a few aspects of operations
-that probably only they can handle.
 
 \subsection{Software: PrairieLearn}
+
+\lesson{Let PrairieLearn host for you.  
+Understand and then minimize the interface with campus IT, to minimize the
+overall number of moving parts.  There are a few aspects of operations
+that probably only they can handle.}
 
 We initially hosted PrairieLearn ourselves, since it was open source
 and we didn't know if we'd need to make changes to integrate with our
@@ -59,34 +60,60 @@ who want to block out audio distractions.
 All of these computers have wired Ethernet; we know better than to
 rely on wi-fi for something so mission-critical.
 
-\subsection{Networking and 2FA}
+\subsection{Networking}
 \label{sec:networking}
 
-More important is IP firewalling, either host-level or CIDR-level.
-Firewalling is essential; don't try to use a lockdown browser or
-similar scheme as it gets messy fast.
-The PrairieLearn login profile has the
-necessary firewall rules to block browser access to any web site other
-than PrairieLearn and the sites required for students to login to our
-campus SSO.
+\lesson{Delivering assessments securely is difficult if the LMS itself isn't
+  designed to do so.}
 
-A major pitfall we did not expect involves 2-factor authentication
-(2FA).  Our IT had contributed code to PrairieLearn to allow federated
-SSO (single sign-on) login via CalNet, our Shibboleth-based
-authentication system.  However, as a matter of campus policy, most
-CalNet-accessible sites trigger a 2FA flow\footnote{\url{https://calnet.berkeley.edu/calnet-2-step}} that requires students to
-use their cell phone to complete login.  This requirement led to
+Our campus LMS is Canvas, but even though it supports (impoverished)
+``quizzes,'' it is not designed to deliver them securely.
+Specifically, our requirements for a ``secure'' Canvas quiz would be:
+
+(list them)
+
+lockdown browsers  - MxN problem, and whack a mole
+
+The correct solution is a combination of a properly configured IP
+firewall and an application that is actually
+designed to deliver secure assessments (as defined by the above
+requirements).  PrairieLearn is correctly designed for this use case.
+The IP firewalling may be either host-level or CIDR-level, but is
+independent of the application, unlike lockdown browsers.
+At our institution, we created 
+a CBTF-specific login profile whose password is publicly known.  That
+profile is only available inside CBTF rooms, is configured with  the
+necessary firewall rules to block browser access to any web site other
+than PrairieLearn and our
+campus SSO, and is the only profile from which in-CBTF exams are
+accessible at all.
+
+
+\subsection{Authentication}
+\lesson{Two-factor authentication (2FA) can present subtle pitfalls.}
+
+Most software systems integrated at our institution, including PrairieLearn, support
+single sign-on (SSO) login via our Shibboleth-based institutional authentication
+system.
+However, as a matter of campus policy, most
+SSO-accessible sites trigger a 2FA flow%
+%\footnote{\url{https://calnet.berkeley.edu/calnet-2-step}}
+\footnote{\url{URL blinded for review}}
+to complete login.
+The most common way to do so is to respond to a challenge on one's
+cell phone via a particular app (Cisco Duo in our case), but there are
+other ways as well.  The 2FA requirement led to
 various failure modes:
 
 \begin{itemize}
 
 \item Wifi and/or cellular data coverage is weak in the basement where the labs are, so the phone
   cannot complete the 2FA flow.
-\item The student recently obtained a new cell phone and has not set
-  it up for 2FA.
+\item The student recently obtained a new cell phone and has not yet set
+   up the 2FA app and linked it to campus.
 \item The student normally uses a different method to complete 2FA,
   such as a physical USB token, tablet, or touchID-capable laptop,
-  which may not be used in the CBTF.
+  none of which are permitted in the CBTF.
 
 \end{itemize}
 
@@ -102,10 +129,14 @@ complete login; at the 10-minute mark, before the proctor ``opens''
 the exam in PrairieTest, all devices must be placed at the front of
 the room.
 
+
+
 \subsection{Accessibility}
 
-\textbf{Lesson:} There are more accommodations in heaven and earth
-that are dreamt of in your philosophy.  Accessibility goes far beyond
+\lesson{There are more accommodations in heaven and earth
+  that are dreamt of in your philosophy.}
+
+Accessibility goes far beyond
 the capabilities of the software, which in the case of PrairieLearn
 are very good.
 
@@ -116,8 +147,8 @@ does a great job of this, enough to satisfy our very finicky campus review.
 
 However, there are aspects of a11y you must deal with during
 a pilot, such as the physical a11y limitations of the room itself: Can
-  wheelchairs be accommodated?  Standing desks?  Adjustable height
-  desks?  
+wheelchairs be accommodated?  Standing desks?  Adjustable height
+desks?  
   
 Try to get your Disabled Students Program (it has different names at
 different institutions; we'll generically refer to it as DSP) on board
