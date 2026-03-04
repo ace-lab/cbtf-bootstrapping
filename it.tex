@@ -36,29 +36,40 @@ when we tried to do reservations ourselves.
 
 \subsection{Hardware}
 
-PrairieTest exams require only a browser; any heavy lifting such as
+PrairieLearn exams require only a browser; any heavy lifting such as
 code autograding is done on the server side by managing Docker
 containers (another reason to have PrairieLearn host for you, although
-as a caveat, a course requiring custom external grading costs more
+as a caveat, a course requiring custom external grading containers costs more
 than 2x per seat as one that doesn't).
-The computers in the shared labs are several generations old and
-were running Windows 10 at the time, and were fine for the task, since
+The computers in the shared labs are several generations old---some
+are nearly 15 years old---and 
+were running Windows 10 at the time (recently upgraded to Windows 11,
+which required a custom installer since Windows 11 needlessly insists
+on more recent model CPUs than what these had).
+These were fine for the task, since
 PrairieLearn does a good job of adhering to widely-adopted Web
 standards for the browser GUI and (importantly) accessibility.
 When it came time to outfit a new 30-seat room as a full-time CBTF, we
-purchased \$500 computers on Amazon.
-More recently, in another shared lab we've used 15-year-old computers recently upgraded to
-Windows 11, and they are still satisfactory.
-In our shared labs, the computers were centrally managed, and each had
-a set of ``login profiles'' that had different software installed.  We
-arranged with IT to create a new profile for PrairieLearn that 
-disables USB ports, to prevent students bringing USB-borne materials
-to an exam, and has virtually no software installed other than a Web
-browser and some audio files consisting of white noise for students
-who want to block out audio distractions.
-
+purchased mini-PCs on Amazon for under \$500 each, including
+keyboards, 22'' or 24'' monitors, and mice.
 All of these computers have wired Ethernet; we know better than to
-rely on wi-fi for something so mission-critical.
+rely on wi-fi for something so mission-critical in a densely-occupied room.
+
+The computers are centrally managed.
+Our shared labs use a campus-level Active Directory setup that allows
+configuring different group policies (profiles) that allow blocking
+software installation and filesystem access, locking out most of the
+Internet, and so on.
+A profile was created for CBTF use that 
+disables USB ports (to prevent students bringing USB-borne materials
+to an exam) and has virtually no software installed other than a Web
+browser and some audio files of white noise for students
+who want to block out audio distractions.
+We use the open source Clonezilla to uniformly image all machines, and
+DeepFreeze software is used to restore the computer to a specific
+state whenever an account is signed out. This prevents the saving of
+any data (including cookies, files, etc.) on the computer's local filesystem.
+
 
 \subsection{Networking}
 \label{sec:networking}
@@ -66,15 +77,70 @@ rely on wi-fi for something so mission-critical.
 \lesson{Delivering assessments securely is difficult if the LMS itself isn't
   designed to do so.}
 
+Each lab has its own subnet, so the campus-level firewall was
+configured to lock out most of the
+Internet when accessed from one of the labs, except for the servers
+needed to access PrairieLearn exams. 
+One
+caveat regarding this configuration was that attempting to access
+any blocked site resulted in the same error message one would see if
+there were no Internet connection at all.
+Some students would make a typo in accessing PrairieLearn or
+PrairieTest, see this error, and report to the proctor that their
+computer had no Internet.  (This despite the fact that upon signing in
+to the CBTF profile, there was an immediate and obvious desktop
+shortcut that students were instructed to open to go directly to PrairieTest.)
+An alternative would be to use Windows-level firewall facilities
+rather than relying on a network firewall.
+
+However, firewalling isn't enough to deliver secure exams.  
+Specifically, our requirements for a secure exam are:
+
+\begin{enumerate}
+
+\item The exam can only be accessed while inside one of the CBTF
+  spaces.
+
+\item An exam can only be accessed by a particular student during
+    the specific time of that student's reservation for that exam.  (That is, a
+    student cannot make a reservation for exam A and use the
+    opportunity to peek at exam B.)
+
+ \item If the platform serving the exam is also the platform where
+    homework assignments and other course materials are located,
+      those other materials must not be accessible to the student
+      while in the CBTF.
+
+\end{enumerate}
+
+
 Our campus LMS is Canvas, but even though it supports (impoverished)
 ``quizzes,'' it is not designed to deliver them securely.
-Specifically, our requirements for a ``secure'' Canvas quiz would be:
+While it supports item 1 by specifying CIDR blocks (IP subnets) to
+which exam access is limited, supporting item 2 requires manually
+editing each student's allowed exam time window in Canvas.
+Furthermore, Canvas provides no way to restrict access to other
+materials in the course space from within a particular CIDR
+block---the only solution is to completely unpublish all other course
+materials temporarily during a multi-day exam window, thereby making
+them unavailable to all students during that window.
 
-(list them)
+Some colleagues have reported using lockdown browsers such as
+Respondus, but this leads to (at least) two problems, in addition to
+the fundamental problem that such a browser is essentially spyware.
+First, a lockdown browser must be installed and configured to work
+with a particular set of applications (that is, a particular LMS), so
+there is an $M\times N$ problem of licensing and installing a browser
+to work with each LMS that could be used to administer exams.  Second,
+if the LMS itself is not designed for secure delivery, careful
+attention must be paid to avoid restricting access to secondary sites
+that are actually needed for the exam, such as those that serve images
+or provide an embedded coding environment, while blocking sites that
+are truly unauthorized.  We judged this
+Whac-A-Mole\footnote{Whac-A-Mole is a registered trademark (1975) of
+Bob's Space Racers, Inc. Really.} to be unproductive and risky.
 
-lockdown browsers  - MxN problem, and whack a mole
-
-The correct solution is a combination of a properly configured IP
+The correct solution is therefore a combination of a properly configured IP
 firewall and an application that is actually
 designed to deliver secure assessments (as defined by the above
 requirements).  PrairieLearn is correctly designed for this use case.
