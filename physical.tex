@@ -1,5 +1,110 @@
 \section{Physical Configuration}
 
+\subsection{Computer Lab? Open Space? Whose?}
+\lesson{Not all available lab spaces are created equal.}
+
+We used existing, shared, centrally-managed computer labs for our proto-CBTF.
+Because they were already computer labs, we knew they had sufficient power and
+networking for many computers.  If you're  expecting to
+furnish/equip an empty space, be sure it has enough power and
+wired Ethernet capacity for your expected load (don't rely on wi-fi for something
+as mission-critical as an exam) and a way to run the necessary cabling
+to each computer.
+In addition, a computer lab is likely already occupancy-rated to
+be densely filled with students; some otherwise-promising large
+open spaces may not be.
+
+Similarly, because the shared labs are centrally administered, cleaned, and
+maintained,
+there were
+well-known mechanisms for notifying the maintainers
+of equipment failures.  If you're doing it yourself, someone needs to
+be responsible for this maintenance.
+
+%% .  Long after bootstrapping our
+%% proto-CBTF, we came into possession of a much larger empty space where
+%% we plan to put a permanent CBTF, but that space was not rated for
+%% high-density occupancy nor did it have the power/networking
+%% infrastructure for the 80 to 100 seats we expected to put in,
+%% requiring costly design changes to the room and the building (which
+%% fortunately was already undergoing extensive remodeling).
+
+Students and proctors must also have physical access to the CBTF (and the
+building containing it) during operating hours.
+In our case, the labs are only open to
+students when they are staffed by a particular instructor or academic
+staff member who has reserved the lab in connection with a particular
+course.
+Since we had a rotating staff of TAs (proctors) who needed access, we
+had to work out a system by which they could obtain and return the
+physical keys before and after each exam shift.
+(Many spaces on our campus are controlled by cardkey access that can
+be enabled for particular students' ID cards on a time-window basis,
+but these labs had physical keys.)
+
+
+\subsection{Accessibility (a11y)}
+
+\lesson{Approach your disabled students program office early, but message
+  clearly that although the CBTF can handle only a subset of
+  exam-related accommodations,  all students in your courses will
+  still get the accommodations they need.}
+
+%% \lesson{There are more accommodations in heaven and earth
+%%   that are dreamt of in your philosophy.}
+
+PrairieLearn's a11y compliance is good enough to satisfy our very
+rigorous campus a11y review, and it had been easy to confirm the a11y
+status of the shared labs, since they were centrally managed.  For
+example, we knew they were accessible and navigable by wheelchair, but
+as currently furnished they lacked standing desks or adjustable-height desks.
+But we knew that a11y went far beyond software and physical accessibility,
+so we approached our Disabled Students
+Program office (DSP hereafter) as early as possible as potential collaborators.
+DSP has a proctoring facility for students needing
+exam accommodations, but it is vastly oversubscribed.  Our goal had been 
+to convey the message that by handling ``common''
+accomodations such as reduced distraction and extra time on exams,
+which collectively account for more than 80\% of all exam-related
+accommodation requests, we could
+could relieve the DSP proctoring center of much workload.
+
+However, we initially received a cool reception
+since DSP was quite apprehensive about the idea of a CBTF
+serving an entire course.
+In retrospect, we believe one possible reason was that our proposal
+and worldview were very far away from their
+usual operating model (see~\cite{cbtf-not-proctoring} for more detail
+on this point), so they may have initially assumed that we were either
+trying to co-opt their responsibilities or trying to incompetently
+scale up what they were already doing.
+They initially insisted, for
+example, that every CBTF seat must meet a wide range of a11y criteria, whereas
+our goal was to identify which accommodations
+could be met straightforwardly, and continue handling the rest by
+one-off means.
+It took a while for the two sides to understand each other
+better---having a manifesto such as~\cite{cbtf-not-proctoring}  in
+place might have accelerated that understanding---but as of February 2026, over
+85\% of all exam-related accommodations 
+ approved by DSP can be handled
+within our CBTF.
+  
+In addition to extra time on exams, the second most common exam
+accommodation at our institution involves a ``reduced distraction''
+exam environment.
+We were dismayed that we couldn't find a canonical definition
+of the physical parameters of this accommodation 
+within our institution, let alone systemwide across the several
+campuses in our state's public higher education system.
+In the end, our departmental liaison to the DSP office (our department
+is large enough to have one) developed
+a configuration involving headphones and view partitions that
+DSP agreed would satisfy the RD requirement for most
+students, with the caveat that students who had more stringent needs
+(e.g. ``must take the exam alone in a room'') would still be
+accommodated, just not in the CBTF.
+
 \subsection{Privacy}
 
 We purchased anti-glare/privacy screens for about \$30 per
@@ -31,41 +136,3 @@ pockets when jackets aren't removed, baggy sweaters, and so on.
 A major caveat to ``no devices'' is two-factor authentication; see Section~\ref{sec:networking}.
 
 
-\subsection{Equipment and Facility Maintenance}
-
-The shared labs we used are centrally administered, cleaned, hardware
-maintained, and so on.  Therefore there were
-well-posted and well-exercised methods for notifying the maintainers
-of equipment failures.
-We did, however,
-need to coordinate physical access, since the labs are only open to
-students when they are staffed by a particular user holding the
-reservation.  Usually the user is a specific instructor or academic
-staff member who has reserved the lab for a particular course; in our
-case, we had a rotating staff of TAs (proctors) who needed access, so
-we had to work out a system by which they could obtain and return the
-physical keys before and after each exam shift.  (Many spaces on our
-campus are controlled by cardkey access that can be enabled for
-particular students' ID cards, but these labs had physical keys.)
-
-
-\todo{From James Fong when we configured SDH:
-
-  I installed the Windows 10 Berkeley desktop image with no real problems on one of the older Dell Optiplex this morning. There were just a few minor issues that required tweaking the BIOS. As time permits, over the next few weeks I will test out the machines more fully and create two images. One for the five Dell Optiplex machines and another for the 26 Dells rescued from salvage. I'll also plan on checking in with Finsen next week regarding the status of SDH200 (are the computers moved out?) and requirements for getting our computers on the EECS network. 
-
-Perhaps these are on others' minds too, but I'm just going to outline some of the things needed before we can set up the lab:
-
-Physical/cardkey access to SDH200
-
-Network access
-
-Moving computers from Evans B3 to SDH200
-
-Purchasing new monitors or repurposing older monitors from Evans
-
-Purchasing mice, keyboards, headphones
-
-Purchasing security locks for the computers
-
-Other purchases such as power strips and ethernet cables, if needed
-}
