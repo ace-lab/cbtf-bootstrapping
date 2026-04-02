@@ -5,7 +5,12 @@ ZIP = zip
 
 SRCS = $(shell find . -name '*.tex') $(OUT).bib
 
+DSTDIR = /Users/fox/fox@berkeley.edu - Google Drive/My Drive/CBT/CBTF/CBTF paper submissions
+
 all: $(OUT).pdf
+
+copy: $(OUT).pdf
+	cp $(OUT).pdf '$(DSTDIR)'
 
 .DELETE_ON_ERROR:
 $(OUT).pdf: $(SRCS) $(OUT).bib
