@@ -1,77 +1,79 @@
-\section{Software, Hardware, and Networking}
+\section{Computing Infrastructure}
 
 
 \subsection{Software: Don't Self-Host}
-
+\label{sec:software}
 \lesson{Don't self-host your exam software; the expected cost
   savings evaporates with other overheads.}
 
-Because we had only one course actually trying to run CBTF-like exams
-and a few others using PrairieLearn for formative assessments only,
+
+
+Although 
+Canvas\footnote{instructure.com/canvas} is our official
+campuswide Learning Management System, we found it impoverished in
+important ways impacting both assessment authoring and assessment
+delivery (Section~\ref{sec:networking} describes the latter).
+In contrast, we found much to admire about the
+PrairieLearn\footnote{prairielearn.org} assessment authoring and
+delivery system and intended to use it.
+Because our pilot consisted of only one course actually trying to run CBTF-like exams
+and a few others that would be using PrairieLearn for formative assessments only,
 we initially hosted PrairieLearn ourselves, since it was open source
 and we didn't know if we'd need to make changes to integrate with our
 campus systems.  In retrospect, this was a mistake.
 
-Our IT staff is highly competent and were very cooperative.  However,
+Our IT staff are highly competent and very cooperative.  However,
 this represented a brand-new set of tools and
 workflows for them, and their time and budget are tight.
-And even with light usage, smooth operation during exams is mission-critical.
+Even with light usage, smooth operation during exams is mission-critical.
 As soon as more courses began doing CBTF quizzes,
-the manual scaling of Amazon EC2 (Elastic Compute Cloud) resources to
+the manual scaling of cloud resources to
 ensure sufficient capacity quickly became a nuisance, with IT staff
 needing a 24-hour heads up before any scale-up period.  PrairieLearn
 hosting would have made this transparent.
 
-In addition, the open-source software does not include PrairieTest for
-scheduling the CBTF.  Even with only one course to schedule, we
-underestimated how useful PrairieTest would be, as we would discover
-when we tried to do reservations ourselves.
-
-
-\subsection{Hardware: Ancient Legacy Desktops}
-
-\lesson{15-year-old desktop computers sitting in
-  underutilized computer labs have a new lease on life.}
-
-PrairieLearn exams require only a browser; any heavy lifting such as
-code autograding is done on the server side by managing Docker
-containers (another reason to have PrairieLearn host for you, although
+Cloud provisioning was further complicated by having to managee Docker
+containers for custom autograders, on which our CS course relied heavily (another reason to have PrairieLearn host for you, although
 as a caveat, a course requiring custom external grading containers costs more
 than 2x per seat as one that doesn't).
-Some of the computers in our shared labs are 15-year-old mini-PCs
-running Windows 10; these were fine for the task, since
-PrairieLearn adheres to widely-adopted (and therefore
-legacy-compatible) standards for both 
-the browser GUI and, importantly, accessibility.
-For new CBTFs, we
-purchased mini-PCs online for under \$500 each, fully equipped,
-with Ethernet ports---we know better than to
-rely on wi-fi for something so mission-critical in a densely-occupied room.
 
-The computers are centrally managed.
-Our shared labs use a campus-level Active Directory setup that allows
-configuring different group policies (profiles) that allow blocking
-software installation and filesystem access, locking out most of the
-Internet, and so on.
-A profile was created for CBTF use that 
-disables USB ports (to prevent students bringing USB-borne materials
-to an exam) and has virtually no software installed other than a Web
-browser and some audio files of white noise for students
-who want to block out audio distractions.
-We use the open source Clonezilla to uniformly image all machines, and
-DeepFreeze software is used to restore the computer to a specific
-state whenever an account is signed out. This prevents the saving of
-any data (including cookies, files, etc.) on the computer's local filesystem.
+Finally, the open-source software does not include PrairieTest,
+which facilitates
+scheduling the CBTF itself and allowing students to make exam
+reservations.
+Again, we assumed that with only one course needing exam scheduling
+and two shared lab spaces, we'd be able to use free tools such as
+SignupGenius in lieu of PrairieTest.  This was also a mistake.
+Even ``simple'' exam scheduling quickly becomes complicated when one
+doesn't use purpose-built tools.
+First, students with extra-time accommodations must be handled
+manually.
+Second, students with reduced-distraction accommodations must be
+handled separately.  Traditionally, this is done by filling
+a room to only $1/3$ or $1/2$ capacity, so we dedicated separate
+CBTF sessions to this purpose; but we had to manually assign students
+to the correct sessions, whereas PrairieLearn would have allowed us to
+simply configure certain sessions as allowing or disallowing
+reservations for  particular
+categories of students.
+
+
+Since we weren't sharing the facility with any other courses, we
+scheduled the room in 3-hour ``shifts'' and had students sign up for
+seats during one particular shift over a 4-day window during finals week.
+
+we did a 3 hour final. it's down to 2 hours now.  We therefore did 3-hour
 
 
 \subsection{Network: Not Just Firewalls}
 \label{sec:networking}
 
-\lesson{Delivering assessments securely is difficult if the LMS itself isn't
-  designed to do so.}
+\lesson{Delivering assessments securely requires a secure
+  LMS---firewalls alone aren't enough.}
 
-Each lab has its own subnet, so the campus-level firewall was
-configured to lock out most of the
+Since each instructional lab had its own subnet, it was easy to
+configure  the campus-level firewall to
+lock out most of the
 Internet when accessed from one of the labs, except for the servers
 needed to access PrairieLearn exams. 
 One
@@ -80,11 +82,10 @@ any blocked site resulted in the same error message one would see if
 there were no Internet connection at all.
 Some students would make a typo in accessing PrairieLearn or
 PrairieTest, see this error, and report to the proctor that their
-computer had no Internet.  (This despite the fact that upon signing in
-to the CBTF profile, there was an immediate and obvious desktop
-shortcut that students were instructed to open to go directly to PrairieTest.)
-An alternative would be to use Windows-level firewall facilities
-rather than relying on a network firewall.
+computer had no Internet.  (This occurred numerous times despite the
+fact that upon signing in, 
+there was an immediate and obvious desktop
+shortcut that students were instructed to use to access PrairieTest.)
 
 However, firewalling isn't enough to deliver secure exams.  
 Specifically, our requirements for a secure exam are:
@@ -92,44 +93,37 @@ Specifically, our requirements for a secure exam are:
 \begin{enumerate}
 
 \item The exam can only be accessed while inside one of the CBTF
-  spaces.
+  spaces.  Canvas, our campus LMS, supports this constraint.
 
 \item An exam can only be accessed by a particular student during
     the specific time of that student's reservation for that exam.  (That is, a
     student cannot make a reservation for exam A and use the
-    opportunity to peek at exam B.)
+    opportunity to peek at exam B.)  Canvas does not gracefully
+    support this constraint except by manually editing each student's
+    allowed access-time window.
 
- \item If the platform serving the exam is also the platform where
-    homework assignments and other course materials are located,
-      those other materials must not be accessible to the student
-      while in the CBTF.
+ \item  Other course materials must not be accessible to the student
+      while in the CBTF, except as designated by the instructor,
+      whereas students outside the CBTF should be able to access those
+      materials as usual.  Canvas does not support this constraint at all.
 
 \end{enumerate}
-
-
-Our campus LMS is Canvas, but even though it supports (impoverished)
-``quizzes,'' it is not designed to deliver them securely.
-While it supports item 1 by specifying CIDR blocks (IP subnets) to
-which exam access is limited, supporting item 2 requires manually
-editing each student's allowed exam time window in Canvas.
-Furthermore, Canvas provides no way to restrict access to other
-materials in the course space from within a particular CIDR
-block---the only solution is to completely unpublish all other course
-materials temporarily during a multi-day exam window, thereby making
-them unavailable to all students during that window.
 
 Some colleagues have reported using lockdown browsers such as
 Respondus, but this leads to (at least) two problems, in addition to
 the fundamental problem that such a browser is essentially spyware.
 First, a lockdown browser must be installed and configured to work
-with a particular set of applications (that is, a particular LMS), so
-there is an $M\times N$ problem of licensing and installing a browser
+with a particular LMS,
+so there is an $M\times N$ problem of licensing and installing a browser
 to work with each LMS that could be used to administer exams.  Second,
 if the LMS itself is not designed for secure delivery, careful
-attention must be paid to avoid restricting access to secondary sites
+attention must be paid to configuring the lockdown browser to do this
+job: for example, it must restrict access to course materials, but not
+to secondary sites
 that are actually needed for the exam, such as those that serve images
-or provide an embedded coding environment, while blocking sites that
-are truly unauthorized.  We judged this
+related to the exam
+or provide an embedded coding environment.
+We judged this
 Whac-A-Mole\footnote{Whac-A-Mole is a registered trademark (1975) of
 Bob's Space Racers, Inc. Really.} to be unproductive and risky.
 
@@ -137,15 +131,42 @@ The correct solution is therefore a combination of a properly configured IP
 firewall and an application that is actually
 designed to deliver secure assessments (as defined by the above
 requirements).  PrairieLearn is correctly designed for this use case.
-The IP firewalling may be either host-level or CIDR-level, but is
-independent of the application, unlike lockdown browsers.
-At our institution, we created 
-a CBTF-specific login profile whose password is publicly known.  That
-profile is only available inside CBTF rooms, is configured with  the
-necessary firewall rules to block browser access to any web site other
-than PrairieLearn and our
-campus SSO, and is the only profile from which in-CBTF exams are
+Hence we created an institutional CBTF-specific login profile whose
+password is publicly known; that
+profile is only available for login inside CBTF rooms, is configured with  the
+necessary firewall rules, and is the only profile from which in-CBTF exams are
 accessible at all.
+
+\subsection{Hardware: Ancient Legacy Desktops}
+
+\lesson{15-year-old desktop computers in
+  underutilized computer labs have a new lease on life.}
+
+The shared labs' computers were several generations old and running a legacy OS (Windows~10),
+which turned out to be fine, 
+since PrairieLearn exams require only a browser on the client side.
+Given the legacy OS, 
+it was fortunate that 
+PrairieLearn adheres to widely-adopted (and therefore
+legacy-compatible) standards for both 
+the browser GUI and, importantly, accessibility.
+(When we acquired dedicated CBTF space after the pilot, 
+we purchased mini-PCs online for under \$500 each, fully equipped
+including keyboards and monitors.)
+
+The CBTF-specific login profile mentioned above disables
+software installation, filesystem access, and USB ports
+(to prevent students bringing USB-borne materials
+to an exam), and has virtually no software installed other than a Web
+browser and some audio files of white noise for students
+who want to block out audio distractions.
+We use the open source Clonezilla to uniformly image all machines, and
+DeepFreeze software to restore the computers to a pristine 
+state upon logout. This prevents the leaking of
+any data (including cookies, files, etc.) across exam sessions.
+
+We tried to maintain 10-15\% spare hardware capacity ($2$ idle
+machines each room) in case of hardware malfunction during an exam.
 
 
 \subsection{Authentication: Dry Run It First}
@@ -169,10 +190,10 @@ various failure modes:
 
 \item Wifi and/or cellular data coverage is weak in the basement where the labs are, so the phone
   cannot complete the 2FA flow.
-\item The student recently obtained a new cell phone and has not yet set
-   up the 2FA app and linked it to campus.
+\item The student recently obtained a new cell phone and has not yet
+  installed and linked the 2FA app.
 \item The student normally uses a different method to complete 2FA,
-  such as a physical USB token, tablet, or touchID-capable laptop,
+  such as a physical USB token, tablet, or touchID-capable device,
   none of which are permitted in the CBTF.
 
 \end{itemize}

@@ -1,4 +1,24 @@
+
+\lesson{Migrate incrementally, starting with lower-stakes assessments.}
+
 \section{Process and Policy Related Issues}
+
+\lesson{No one ``owns'' exam administration as a whole.
+  Responsibilities for funding,
+  exam policies, accessibility, and so on will  cross administrative
+  boundaries that are usually non-porous.}
+
+
+Funding: CoE, then later VPUE, then external
+
+\subsection{Funding}
+
+We began with initial internal seed funding of around \$75,000, and
+later, two expansive grants totaling about \$1.5M (shared with two
+other institutions) covering research and content development related
+to mastery learning as well as CBTF operations.
+
+
 
 \subsection{Exam Locations, Times, and Durations}
 
@@ -17,7 +37,7 @@ take exams.  Be sure you are familiar with and complying with yours.
 For example, the summer offering of our pilot course had previously
 been 100\% online and asynchronous, including online remote exams;
 since converting to CBTF exams (remote exams are now possible only due
-to a documented disability exception), we can no longer offer the
+ato a documented disability exception), we can no longer offer the
 summer version as a fully online course.  As instructors, we were more
 than happy to pay this price in exchange for higher academic integrity
 and saner exam administration, but the Summer Sessions program office
@@ -63,41 +83,62 @@ definitely preferred the CBTF, 30\% definitely preferred paper, and
 
 
 \subsection{Accommodations Workflow}
+\label{sec:a11y}
 
- \lesson{There are more accommodations workflows in heaven and earth
-   that are dreamt of in your philosophy.}
+\lesson{Accommodations workflows are bespoke, but any given software
+  system is probably designed to a specific workflow.}
 
-At our institution, when a student gets approval from the DSP center
+To paraphrase Shakespeare, there are more accommodations workflows in heaven and earth
+that are dreamt of in your philosophy.
+
+At our institution, 
+
+Furthermore, the design of PrairieTest is such%
+ \footnote{As of August
+ 2026, this design will be made more flexible, partially in response to
+ concerns such as ours.}
+that the only person who can enter accommodations for a student is a
+CBTF staff member (not the course instructor), and they cannot do so
+until the student has signed into PrairieTest at least one time, even
+though they may have no other need to do so.
+The reason is that the software was originally designed
+for an institution at which, when students receive an accommodation
+letter, they can present it directly to CBTF staff to have
+accommodations entered.
+
+In contrast, when a student at \inst{},
+when a student gets approval from the DSP center
 for a disability accommodation, the information is sent exclusively to
-the course's instructor of record or their delegate (e.g.
-a TA). However, for CBTF-based exams, two things have to happen.
-First, the subset of accommodations that \emph{can\/} be accommodated
-in the CBTF must be communicated to CBTF staff so that PrairieTest
-knows about it, and any students who have those accommodations and had
-already made CBTF reservations must cancel and rebook them in order to
-have the accommodation taken into account.
-In our case, these are extra time, reduced distraction, bathroom
+the student's instructor(s).
+If the student's
+first login to PrairieTest is for the purpose of making an exam
+reservation---not an unreasonable assumption---and the student has exam
+accommodations, their reservation will \emph{not\/} reflect those
+accommodations until after CBTF staff (not the course instructor) have
+entered those accommodations.  But CBTF staff cannot enter those accommodations until
+the student has signed into PrairieTest at least once.  And
+instructors, who are the sole recipients of accommodation letters,
+cannot enter CBTF-related student accommodations  
+at all.  This Kafkaesque process has resulted in many students having
+to cancel and rebook a previously-made reservation so that it
+correctly reflects their accommodations.
+
+All of that said, the value of being able to handle the majority (over
+87\% today) of exam-related accommodations within the CBTF framework
+has been an enormous benefit.
+In our case, the CBTF can handle extra time, reduced distraction, bathroom
 breaks during exams, and a few others, and we will soon accommodate
 standing desks and adjustable-height desks.
-Second, students whose accommodations \emph{cannot\/} be met by the
+Students whose accommodations \emph{cannot\/} be met by the
 CBTF must be handled by either course staff or the DSP proctoring
-center.
-
-This roundabout workflow, which places faculty intermediares in places
-where they arguably don't need to be, has complicated dealing with
-CBTF accommodations (although it is still true that once a given
-student has been properly processed at the start of the semester, no
-further work is required for that student's CBTF accommodations during
-the remainder of the semester).
+center, but that is a far smaller number of students.
 
 Our experience from talking to colleagues is that different campuses
 have different policies as to who may see accommodations information
 and how it is routed, so the only advice we can give is to get far in
 front of this and have a known process in place for conveying
 CBTF-relevant accommodations to whoever is in charge of managing them
-at exam time
-(in our case, entering them in PrairieTest).
-
+at exam time.
 
 %% \subsection{Policy}
 
@@ -135,17 +176,13 @@ predict.  After a combination of programmatic and manual forensics, we
 were able to determine that the student had had someone else take the
 quizzes for them, and submitted screencast video that did not match
 the ``live'' video of them taking the quiz, on not one but several
-occasions.  The student was disciplined, but we learned a humbling and
-discouraging lesson about the brazenness and length to which students
+quizzes.  The student was disciplined, but we learned a humbling and
+discouraging lesson about the brazenness and length to which some students
 would go to cheat.  Since that incident, \emph{all\/} summative
-assessments for this course are in-CBTF only except for medical
+assessments for that course are in-CBTF only except for medical
 exemptions, and as of Spring 2026, we have had only one confirmed
 attempt at in-CBTF cheating (in another course).  Many of our
 colleagues had never fully trusted remote exams in the first place;
 the final nail has now been driven into that coffin.
 
 
-
-\section{Conclusion}
-
-A snappy conclusion to be written.
