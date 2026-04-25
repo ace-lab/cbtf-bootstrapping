@@ -1,12 +1,21 @@
 
-\lesson{
-  \textbf{Key Lesson 1:}
-  Avoid adopting
-  processes that won't scale.  Exceptional situations should create $O(1)$ work per
-  student or per instructor rather than $O(n)$ work for CBTF
-  proctors/staff.
+\begin{figure*}
+  \includegraphics[width=\textwidth]{figs/labs}
+  \caption{\label{fig:spaces}%
+    Our two shared lab spaces are similarly configured with 27 (left)
+    and 30 (right) desktop Windows PCs with Ethernet networking on
+    long shared tables.
+  }
+\end{figure*}
 
-  \textbf{Key Lesson 2:}
+
+\lesson{
+  \textbf{Takeaway 1:}
+  Even in a small pilot, avoid adopting
+  processes that won't scale.  Exceptional situations should create $O(1)$ work per
+  student or per instructor rather than $O(n)$ work for CBTF staff.
+
+  \textbf{Takeaway 2:}
   Various campus units typically ``own'' lab facilities, proctoring
   for students with disabilities, instructional software and hardware
   maintenance, room reservations, and so on; in all likelihood, 
@@ -19,78 +28,54 @@
 \section{Executive Summary}
 
 
-In 2020, some of us at \inst{} initiated a project to pivot
-more campus courses towards mastery learning [cite], an approach that
-had been gaining popularity in our large lower division Computer
-Science courses. A key component of mastery learning is frequent and
-short summative
-assessments that afford some flexibility in when to take them and the
-possibility of re-takes to demonstrate mastery on earlier material
-[cite].  To achieve that goal, we aimed to emulate the very successful
-approach of operationally streamlined computer-based testing
-facilities (CBTFs) as demonstrated for several years at the University of Illinois at
-Urbana-Champaign [cite Craig’s paper], which differ significantly from
-generalized proctoring facilities~\cite{fox-cbtf-not-proctoring}.
-
-Like Downey et al.~\cite{downey-cbtf}, with whose experience ours has
-much in common,
-our goal was to support testing for entire courses,
-not just students with
-special proctoring needs.  
+In Fall 2023, we ran a pilot of a Computer-Based Testing Facility
+(CBTF) inspired by the extensive experience with CBTFs as pioneered at
+the University of Illinois at Urbana-Champaign~\cite{zilles-testing-less-trying} and
+by another institution's experience trying to emulate
+it~\cite{downey-cbtf}. 
+Like those institutions, our goal was to support proctored
+computer-based testing
+for entire courses, not just for students with special accommodations.
 Because we believed a testing center should be
 a common good for supporting mastery learning, if the pilot succeeded we planned to expand to a
 campus-level service.  This would
-mean aggressively courting courses beyond the College of Engineering, 
-especially the large gateway courses ($n~1000$) that would
-benefit most from mastery learning due to uneven student preparation;
-turning over CBTF operations to a central
-campus unit; and developing funding and governance models for this
+require demonstrating the utility of the service beyond the College of Engineering, 
+turning over CBTF operations to a centrally resourced
+campus unit, and developing funding and governance models for this
 cross-unit effort that did not
 currently exist.
+This paper describes our experience and challenges
+bootstrapping this effort; some of the lessons became evident only with a certain
+amount of hindsight.
 
-
-The course chosen for our  ``proto-CBTF''  pilot
-was an upper-division
-software systems course enrolling around 250 students.
-It was among the first at our institution to use
-PrairieLearn for its assessments (we
-justify this choice in Section~\ref{sec:software}),
+The course chosen for our ``proto-CBTF'' pilot was an upper-division
+software/systems course enrolling around 230 students.
+It was among the first at our institution to use PrairieLearn for its
+assessments (we justify this choice in Section~\ref{sec:software}),
 having converted its five 1-hour quizzes to that format during the
 COVID-19 pandemic.
-(Various other courses had migrated their formative assessments to PrairieLearn, but were later in
-adopting CBTF-based summative assessments.)
-The pilot course's quizzes  were taken remotely using
-videoconference-based proctoring, 
-but once the pandemic lockdown ended
-and the instructors had some
-operational experience with PrairieLearn,
-the next step was to convert the 2.5-hour final exam
-and run it in a prototype CBTF.
-That is the experience
-this paper describes.  
-(The quizzes remained remote, which was a mistake but forced in
-part by the limited resources for the pilot.  
-Ironically, the higher
-academic integrity of the CBTF-based final 
-revealed cheating on the quizzes, as we describe in Section~\ref{sec:cheating}.)
+(Various other courses had migrated their formative assessments to
+PrairieLearn, but were later in adopting CBTF-based summative
+assessments.)
+The pilot course's quizzes were taken remotely using
+videoconference-based proctoring, but once the pandemic lockdown ended
+and the instructors had some operational experience with PrairieLearn,
+the next step was to convert the 2.5-hour final exam and run it in a
+prototype CBTF in Fall 2023.
+That experience is the primary basis of this paper.
 
-Describe the SEA model
+A key property of the ``UIUC model'' we were trying to emulate
+is that the exam has enough randomness built into it that  not all
+students take it simultaneously---a necessity since we had only about
+55 seats in our proto-CBTF spaces, and a boon to students since they could
+self-schedule their exam over a multi-day window.
+The model also embodies other
+practices that are important at scale but could  have been ignored for our single course;
+since we planned to scale, we tried to avoid scale-thwarting
+practices, indicating in the text
+where we would have done things differently in hindsight.
 
-The final exam was administered to 217 students in our proto-CBTF over
-a four-day period with two to three 3-hour sessions available for reservation each day,
-for a total of ten sessions.
-
-Compare the prototype to full-blown SEA.
-
-
-A separate report~\cite{fox-cbtf-scaling}
-describes our experience scaling up from the prototype described here to our
-current scenario: a 30-seat dedicated CBTF with a 100-seat CBTF
-opening in Fall 2026, currently serving over 20 courses and over 5,500
-enrolled students. 
-This report identifies the lessons learned during the pilot that made
-the scale-up successful, calling out the ones that turned out to be
-especially important.
-
-Map of paper.
+We divide the experience into three categories: physical space and
+configuration (Section~\ref{sec:physical}), IT infrastructure
+(Section~\ref{sec:it}), and policies/coordination/communication (Section~\ref{sec:policy}).
 
