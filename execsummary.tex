@@ -1,14 +1,4 @@
 
-\begin{figure*}
-  \includegraphics[width=\textwidth]{figs/labs}
-  \caption{\label{fig:spaces}%
-    Our two shared lab spaces are similarly configured with 27 (left)
-    and 30 (right) desktop Windows PCs with Ethernet networking on
-    long shared tables.
-  }
-\end{figure*}
-
-
 \lesson{
   \textbf{Takeaway 1:}
   Even in a small pilot, avoid adopting
@@ -27,42 +17,30 @@
 
 \section{Executive Summary}
 
-
-In Fall 2023, we ran a pilot of a Computer-Based Testing Facility
-(CBTF) inspired by the extensive experience with CBTFs as pioneered at
+Since before the COVID-19 pandemic, various CS and non-CS faculty at
+our institution had been promoting mastery
+learning~\cite{bloom-mastery-learning} as a way of both improving 
+pedagogy generally and narrowing equity gaps specifically~\cite{phuong}.
+One ingredient of mastery learning is giving a certain amount of
+flexibility in when students can take summative assessments, including
+the possibility of ``second chance'' or exam re-takes~\cite{tbd}, and
+we had heard about the extensive experience with Compuer-Based Testing
+Facilities (CBTFs) at
 the University of Illinois at Urbana-Champaign~\cite{zilles-testing-less-trying} and
-by another institution's experience trying to emulate
-it~\cite{downey-cbtf}. 
-Like those institutions, our goal was to support proctored
-computer-based testing
-for entire courses, not just for students with special accommodations.
-Because we believed a testing center should be
-a common good for supporting mastery learning, if the pilot succeeded we planned to expand to a
-campus-level service.  This would
-require demonstrating the utility of the service beyond the College of Engineering, 
-turning over CBTF operations to a centrally resourced
-campus unit, and developing funding and governance models for this
-cross-unit effort that did not
-currently exist.
-This paper describes our experience and challenges
-bootstrapping this effort; some of the lessons became evident only with a certain
-amount of hindsight.
+other institutions.
+Our goal was to adapt and adopt these practices at our institution,
+starting with a single course but eventually spreading the benefits of
+mastery learning to other
+courses in our department, then to other departments in the College of
+Engineering, and ultimately to the entire university.
 
 The course chosen for our ``proto-CBTF'' pilot was an upper-division
 software/systems course enrolling around 230 students.
-It was among the first at our institution to use PrairieLearn for its
-assessments (we justify this choice in Section~\ref{sec:software}),
-having converted its five 1-hour quizzes to that format during the
-COVID-19 pandemic.
-(Various other courses had migrated their formative assessments to
-PrairieLearn, but were later in adopting CBTF-based summative
-assessments.)
 The pilot course's quizzes were taken remotely using
-videoconference-based proctoring, but once the pandemic lockdown ended
-and the instructors had some operational experience with PrairieLearn,
-the next step was to convert the 2.5-hour final exam and run it in a
-prototype CBTF in Fall 2023.
-That experience is the primary basis of this paper.
+videoconference-based proctoring, but once the pandemic lockdown ended,
+we decided to convert the 2.5-hour final exam (traditionally a written
+final with a mix of short-answer and long-form questions) to be administered
+in a prototype CBTF in Fall 2023.
 
 A key property of the ``UIUC model'' we were trying to emulate
 is that the exam has enough randomness built into it that  not all
@@ -78,4 +56,10 @@ where we would have done things differently in hindsight.
 We divide the experience into three categories: physical space and
 configuration (Section~\ref{sec:physical}), IT infrastructure
 (Section~\ref{sec:it}), and policies/coordination/communication (Section~\ref{sec:policy}).
-
+\todo{Maybe not needed if flatten subsections.}
+Given this focus, 
+while we had to make some changes in the types of questions on the
+computer-based final relative to paper-based versions, space does not
+permit discussing that topic in detail, except to state that in
+general we ended up with an exam as rich and authentic as our
+paper-based final, and in some ways significantly better.
