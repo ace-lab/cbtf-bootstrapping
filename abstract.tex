@@ -1,20 +1,24 @@
 \begin{abstract}
 
-In Fall 2023, we ran a pilot of a Computer-Based Testing Facility
-(CBTF) inspired by the extensive experience with CBTFs as pioneered at
-the University of Illinois at Urbana-Champaign~\cite{zilles-testing-less-trying}.
-Like that effort, our goal was to support proctored
-computer-based testing
-for entire courses, not just for students with special accommodations,
-and to eventually serve the whole campus, not just one or two CS courses.
-This paper describes our experience and lessons from
-bootstrapping this effort, some of which became evident only in
-hindsight as we scaled up to our current operation which is over
-$20\times$ larger.
+As part of a research program on mastery learning,
+inspired by the benefits of Computer-Based Testing
+reported by
+the University of Illinois at Urbana-Champaign,
+in Fall 2023 we ran a pilot of such a facility ourselves.
+If the pilot succeeded, we intended to scale up and eventually serve
+the whole campus, not just one or two CS courses. 
+Three years later, our CBTF operation is $20\times$ larger and serving
+departments across campus;
+bootstrapping the initial effort led to important lessons---some
+evident only with long hindsight---from which we hope others
+might benefit.
 Our two main takeaways are as follows.
 First, even in a small pilot, avoid adopting
-  processes that won't scale.  Exceptional situations should create $O(1)$ work per
-  student or per instructor rather than $O(n)$ work for CBTF staff.
+processes that won't scale,
+%% Exceptional situations should create $O(1)$ work per
+%%   student or per instructor rather than $O(n)$ work for CBTF staff,
+since student and faculty expectations are heavily influenced by the
+  initial policies and procedures.
 Second, while various campus units typically ``own'' lab facilities, proctoring
   for students with disabilities, instructional software and hardware
   maintenance, room reservations, and so on, usually

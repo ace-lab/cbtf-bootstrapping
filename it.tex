@@ -1,5 +1,5 @@
 \section{Computing Infrastructure}
-
+\label{sec:it}
 
 \subsection{Software: Don't Self-Host}
 \label{sec:software}
@@ -70,8 +70,8 @@ PrairieTest would have solved both problems out-of-the-box.
 \subsection{Network: Not Just Firewalls}
 \label{sec:networking}
 
-\lesson{Delivering assessments securely requires a secure
-  LMS---firewalls alone aren't enough.}
+\lesson{Firewalls aren't enough for secure assessment delivery:
+  it also requires the LMS to be secure, and most aren't.}
 
 Since each instructional lab had its own subnet, it was easy to
 configure  the campus-level firewall to
@@ -79,7 +79,7 @@ lock out most of the
 Internet when accessed from one of the labs, except for the servers
 needed to access PrairieLearn exams. 
 One
-caveat regarding this configuration was that attempting to access
+caveat regarding the firewall configuration was that attempting to access
 any blocked site resulted in the same error message one would see if
 there were no Internet connection at all.
 Some students would make a typo in accessing PrairieLearn or
@@ -100,7 +100,7 @@ Specifically, our requirements for a secure exam are:
 \item A student cannot make a reservation for exam A and use the
     opportunity to peek at exam B.  Canvas does not gracefully
     support this constraint except by manually editing each student's
-    allowed access-time window.
+    allowed access-time window for both A and B.
 
  \item  Non-exam course materials must simultaneously be accessible to
    students outside the CBTF but inaccessible to students in the CBTF.
@@ -120,7 +120,7 @@ related to the exam
 or provide an embedded coding environment.
 We judged this
 Whac-A-Mole\footnote{Whac-A-Mole is a registered trademark (1975) of
-Bob's Space Racers, Inc. Really.} to be unproductive and risky.
+Bob's Space Racers, Inc. Really.}-like process to be unproductive and risky.
 
 The correct solution is therefore a combination of a properly configured 
 firewall \emph{and\/} an application 
@@ -133,7 +133,7 @@ accessible at all.
 
 \subsection{Hardware: Ancient Legacy Desktops}
 
-\lesson{Don't throw away old desktops, but make sure your
+\lesson{Don't throw away old desktops, but do make sure your
   software likes them.}
 
 The shared labs' computers were several generations old and running
@@ -176,7 +176,7 @@ to complete login.
 The most common way to do so is to respond to a challenge on one's
 cell phone via a particular auth app, but there are
 other ways as well.  The 2FA requirement led to
-various failure modes:
+various failure modes when students tried to login for an exam:
 
 \begin{itemize}
 
