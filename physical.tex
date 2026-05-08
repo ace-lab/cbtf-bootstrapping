@@ -2,8 +2,9 @@
 \label{sec:physical}
 
 \subsection{Computer Lab? Or Open Space? Whose?}
-\lesson{If you need to leave shared space the way you found it, 
-   account for \emph{all\/} setup and teardown needs.}
+\lesson{If you need to leave shared space the way you found it,
+  carefully walk through every aspect of the experience to enumerate
+  physical access, virtual access, setup, teardown, and storage needs.}
 
 We were
 determined to find labs with centrally-managed hardwired computers, rather than
@@ -19,9 +20,9 @@ In contrast, the two instructional labs we were able to schedule part-time
 meant there were mature and centralized
 procedures for scheduling the rooms, gaining access, and handling IT
 and  physical plant maintenance concerns.
-The access protocol required whoever had reserved the lab
+The access protocol required the ``tenant''
 to borrow a physical key, 
-so we had to work out a system by which our rotating staff of proctors could obtain and return the
+so we had to work out a system by which our rotating staff of proctors could obtain and return 
 physical keys before and after each exam shift.
 If you're planning on running evening exams, be sure the building
 containing the labs is accessible to students after hours.
@@ -40,24 +41,24 @@ We also bought a few pairs of
 noise-cancelling headphones (for Reduced Distraction accommodations,
 as Section~\ref{sec:a11y} describes) and various packs of scratch paper color-coded
 for different sessions.
+(Both ideas were stolen from UIUC.)a
 A shared CBTF therefore needs a place where such
 supplies can be securely stored when others use the space.  
 
-Similarly, we  needed a way for students to keep personal belongings (smart
-watches, phones, and so on)  away from testing workstations.  Our shared
-labs didn't have any good place for this, so we had students stow
+Similarly, we  needed a way for students to keep smart
+watches, phones, bags, and so on away from testing workstations.  Our shared
+labs didn't have any good place for this, so students placed
 their belongings under the desk, where unfortunately it's harder to
 spot students fidgeting with them.
 Similarly, beware of items in bulky sweater or jacket
-pockets when those garments aren't removed; we've even heard stories
-of students gluing cheat sheets to the undersides of baseball-cap visors.  In
+pockets when those garments aren't removed.  In
 the permanent spaces we later obtained, we installed dedicated racks
 for students to leave all personal effects.
-(A major caveat to ``no devices'' is two-factor
-authentication, as Section~\ref{sec:networking} describes.)
+A major caveat to ``no personal devices'' is two-factor
+authentication (Section~\ref{sec:networking}).
 
 
-\subsection{Accessibility (a11y)}
+\subsection{Accessibility: Less Standard Than Expected}
 \label{sec:a11y}
 
 \lesson{Accommodations definitions and procedures are highly bespoke.
@@ -65,28 +66,27 @@ authentication, as Section~\ref{sec:networking} describes.)
   how your shared responsibility for handling accommodations will
   impact existing workflows.}
 
-PrairieLearn's a11y compliance is exemplary, as are the physical a11y
+PrairieLearn's accessibility (a11y) compliance is exemplary, as are the physical a11y
 affordances of our shared labs.
 But exam accommodations transcend software and physical a11y,
 so we approached our Student Accommodations Center (a generic term for
 the campus unit that serves students with disabilities that may impact
-their educational experience; SAC hereafter) early, as potential
-collaborators and advisors to help with design elements such as the
+their educational experience; SAC hereafter) early, hoping 
+they would advise and assist with design elements such as 
 Reduced Distraction stations.
-SAC has a proctoring facility for students needing
-exam accommodations, but it is vastly oversubscribed.  
+Our SAC has a proctoring facility for students with disabilities,
+but it is vastly oversubscribed.  
 We tried to convey the message that by handling ``common''
 accomodations such as reduced distraction and extra time,
 which collectively account for more than 80\% of all exam-related
 accommodation requests at our institution, we could
 could relieve the SAC proctoring center of much workload.
 However, 
-SAC was initially quite apprehensive about the idea of a CBTF
-serving an entire course.
+the SAC was initially apprehensive about the idea of a CBTF
+serving an entire course, and reluctant to engage with us.
 In retrospect, we believe one possible reason was that our whole-class
-proctoring proposal
-and our model of running exams were very far away from their
-usual operating model, so they may have initially assumed that we were
+``one size fits most'' proctoring model was very far away from their
+usual operating model, so they may have assumed that we were
 trying to either
 co-opt their responsibilities or incompetently
 scale up what they were already doing.
@@ -98,37 +98,36 @@ of the physical parameters of this accommodation, and
 that practices for handling it seemed to vary
 from course to course, the most widely used practice being to
 underfill a room to 30--50\% capacity.
-For our pilot course's final exam, we designated a few CBTF sessions
-as RD, and restricted reservations for those sessions to students with
-an RD accommodation (Section~\ref{sec:reservations} describes why this turned
-out to be needlessly painful).
-Later, as other courses began using the proto-CBTF after Fall 2023,
+For our pilot course's final exam, we
+restricted reservations for designated ``underfull'' sessions to students with
+an RD accommodation; Section~\ref{sec:reservations} describes why this turned
+out to be needlessly painful.
+As other courses began using the proto-CBTF after Fall 2023,
 our departmental liaison to
-the SAC office worked with them
+the SAC office, who had a close working relationship with them,
+engaged them
 to develop
 a configuration involving headphones and inexpensive view
 partitions\footnote{\url{https://www.amazon.com/dp/B0F3CVPDYC}} that
 SAC agreed would satisfy the RD requirement for most
 students, eliminating the need to underfill the room.
 Despite the low cost of these dividers, we configured only a few stations
-this way (based on historical data for the percentage of students in
-various large courses
-requiring this accommodation) since the dividers make it more
+this way based on historical data,
+since dividers make it more
 difficult for proctors to spot suspicious behaviors.
 The result of these efforts
 is that today our scaled-up CBTF handles over 87\%  of
-exam-related accommodations, saving hundreds of hours of cousre staff
-time and reducing the proctoring load on our SAC.\footnote{Students
+exam-related accommodations, saving hundreds of hours of course staff
+time and reducing the proctoring load on our SAC.  Students
 whose accommodations cannot be met by the CBTF must
-be handled by either course staff or the SAC proctoring center as
-they were before.}
+be handled by either course staff or the SAC proctoring center, as
+they were before.
 
-
-A challenge that did not arise with our (inefficient) homegrown
-reservations system, but surfaced when we switched in Spring 2024 to
+A challenge that did not arise with the (inefficient) homegrown
+reservations system described in Section~\ref{sec:reservations}, but surfaced when we switched in Spring 2024 to
 using PrairieTest and hosted PrairieLearn,
-was our institution's accommodations-handling
-workflow.  We have since learned that that workflow is neither better nor worse than
+involved our institution's accommodations-handling
+workflow.  We have since learned that our workflow is neither better nor worse than
 that of other institutions---they are just all bespoke.
 PrairieTest has robust accommodation-handling facilities,
 %% so that (for
@@ -142,15 +141,15 @@ to CBTF staff, who are the only ones who have the ability to note the
 accommodations in the reservations system.
 But at our institution,
 accommodation information is provided \emph{only\/} to
-the student's instructor(s), who must then convey it to CBTF
-staff for entry into PrairieTest.
+the student's instructor, who becomes a (fallible) middleman who must convey it to CBTF
+staff.
 Significantly, CBTF staff cannot enter accommodations until
 \emph{after\/} the student has signed into PrairieTest at least once---and if the 
 student has done so for the purpose of making their first exam
 reservation (not an unusual scenario), \emph{a~fortiori\/} that reservation will not reflect
 their accommodations because CBTF staff have been unable to enter
 them!
-This Kafkaesque process has caused friction for students and
+This Kafkaesque process caused significant friction for students and
 faculty;
-as of August 2026, PrairieTest's workflows are being made more flexible,
+as of this writing, PrairieTest's workflows are being made more flexible,
 partially in response to concerns such as ours.
