@@ -1,0 +1,29 @@
+Email xchg with Brianna Morrison <bbmorrison@virginia.edu>, UVA:
+
+thanks for this!
+
+the submit deadline was friday evening so i sent it in, but if it is accepted, i'll do my best to incorporate your feedback.
+
+good point about faculty needing to be reminded that they cannot reschedule exams at the last minute.
+
+we've also used the PrairieTest analytics (very useful) to calculate the rate of no-shows and the number of students who have accommodations (an extra-time accommodation is basically a double slot), and we use that "fudge factor" for capacity estimation.
+
+re-takes are still a work in progress.  the problem is that the courses who are (bravely, and with our encouragement) experimenting with it are still figuring out what makes a student eligible for a re-take, so right now there's no good way to estimate re-take capacity except to tell the faculty member "you must design your retake policy so that no more than X% of your students are eligible".
+
+we haven't yet run into "finals week crunch" challenges but i imagine we will, so we're trying to get ahead of it by negotaiting with COCI about when finals are allowed to happen (eg can we offer the option but not the obligation for students to take finals during "dead week", or extend the finals period beyond finals week, or use the weekends, etc)
+
+we are also establishing a steering committee but at this point if we included representatives from all departments it would have like 20 people.  i'm actually working on a 2nd paper that talks about the scale-up experience, and that's more where we wil talk about governance models and other scaling challnges.  i'll send you that one too :-)
+
+cheers,
+a
+
+
+On May 11, 2026, at 11:27, Morrison, Briana B. (wxt4gm) <wxt4gm@eservices.virginia.edu> wrote:
+
+Hey – just getting to this.  Really nice start on an article, and one that we could have definitely used last December when we were getting set up for starting our CBTF in February (yes, mid-semester).  There are a couple of “rough spots” but you probably already know that.
+ Additional things that you might want to think about:
+Another lesson: Do not try and pivot mid-term. While, in the end, we were able to pull it off, it would have been so much easier if we had planned either full CBTF for the whole semester or just postpone. It cause numerous headaches and work-arounds.
+ We are implementing a Steering Committee with representation from all using departments to establish usage rules, etc. around the CBTF. Deciding on hours, management, processes, etc.
+ Have student-facing and faculty-facing documentation of the processes related to the CBTF.  What should the student do if they are ill at the time of their exam reservation? What happens if campus is closed on the day of  scheduled exams? Faculty need to know that it no longer becomes possible to just “shift your exam” by a week or so. But it does open up the idea of make-ups for illness, travel, etc. and re-takes for mastery learning. But both have to be accounted for in the capacity of the CBTF.  (Don’t be me who needed *10* extra testing sessions at 30 seats per session because scheduler didn’t understand that students could retake *multiple* exams during final exam testing.
+ And final exam testing is tricky based on capacity of CBTF. Think about the number of days of final exams and number of testing sessions per day (times the number of seats) and that’s the *maximum* number of students able to have a final exam in the CBTF.  For us, it’s about half the number of students/classes that we run during the semester. So we’re having to figure out different arrangements for final exams vs. regular testing during the semester.
+
