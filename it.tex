@@ -9,15 +9,12 @@
 
 Although 
 Canvas\footnote{instructure.com/canvas} is our official
-campuswide Learning Management System, we found it impoverished 
+campuswide Learning Management System, we found it too limited
 for both assessment authoring and assessment
 delivery (Section~\ref{sec:networking} describes the latter).
 In contrast, we found much to admire about 
-PrairieLearn\footnote{prairielearn.org} and
+PrairieLearn and
 intended to use it.
-Indeed, our pilot course was among the first at our institution to 
-convert its five 1-hour quizzes to PrairieLearn during the
-COVID-19 pandemic.
 Because our pilot consisted of a single course,
 we initially hosted PrairieLearn ourselves, since it was open source
 and we didn't know if we'd need to make changes to integrate with our
@@ -96,8 +93,8 @@ Specifically, our requirements for a secure exam are:
 \item The exam can only be accessed while inside one of the CBTF
   spaces.  Canvas supports this constraint.
 
-\item A student cannot make a reservation for exam A and use the
-    opportunity to peek at exam B.  Canvas does not gracefully
+\item A student cannot peek at exam B while taking exam A.
+    Canvas does not gracefully
     support this constraint except by manually or programmatically editing each student's
     allowed access-time window for both A and B.
 
@@ -153,14 +150,13 @@ to an exam).  It has virtually no software installed other than a Web
 browser and some audio files of white noise for students
 who want to block out audio distractions (using CBTF-provided
 headphones, not their own).
-proctor-
 Once students have signed in to this profile, they can access their
-exam reservation via PrairieTest; indeed, this profile is the
+exam reservation via PrairieTest; indeed, this profile 
 is the only way to access in-CBTF exams at all.
 
 We use DeepFreeze\footnote{https://www.faronics.com/products/deep-freeze}
 to restore each computer to a pristine state upon logout to prevent
-leaking of cookies, files, and so forth across exam sessions.
+leaking of cookies, files, and so forth.
 
 When scheduling reservations, we always left 1 or 2 machines free in
 each room in case of hardware malfunction during an exam, which

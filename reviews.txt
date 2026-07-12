@@ -1,0 +1,170 @@
+
+SUBMISSION: 56
+TITLE: Bootstrapping a Computer-Based Testing Facility Using Shared Lab Space
+
+-------------------------  METAREVIEW  ------------------------
+This paper describes deploying and managing a computing lab testing facility to assess students under exam conditions but with significant flexibility. This work presents feasible and helpful tips on deploying and scaling up such a lab-based assessment facility. This paper has clear merit in supporting others to deploy a similar set-up at their own institutions. It is particularly helpful that the paper describes the evolution of the lab rather than simply define its end state.
+
+This work could have been strengthened by student feedback, however it is a valuable contribution nonetheless.
+
+
+----------------------- REVIEW 1 ---------------------
+
+SUBMISSION: 56
+TITLE: Bootstrapping a Computer-Based Testing Facility Using Shared Lab Space
+
+----------- Summary -----------
+This report documents the setup and evolution of a computer-based testing facility (CBTF).  The motivation is to communicate lessons learned throughout the evolution from an initial small installation to a larger one.  The lessons are categorized into issues dealing with physical configuration, IT Issues, staffing, and policy.  The lessons are concrete and easily transferrable to other institutions.
+----------- Motivation (ERT) -----------
+SCORE: 5 (excellent)
+----- TEXT:
+The motivation is very clear and worthwhile: to document issues that are likely to arise when setting up a CBTF and how they were dealt with.
+----------- Prior and Related Work (ERT) -----------
+SCORE: 3 (fair)
+----- TEXT:
+The related work section is relatively short.  It may have be helpful to cast a wider net to include literature on setting up testing facilities in general, not just CBTFs.
+----------- Approach (ERT) -----------
+SCORE: 4 (good)
+----- TEXT:
+The approach in this report is a systematic categorization and description of the evolution of the CBTF.  A useful but not critical additional piece would be some form of evaluation of student and faculty satisfaction with the processed described.  It would have been really useful if there was a student exit survey or a faculty survey.  One other missing part that would have been helpful but not critical is lessons learned from the faculty perspective.  I.e. the cost of moving exams from a 1-shot paper mode to a multi-shot computer-based mode.
+----------- Evidence (ERT) -----------
+SCORE: 4 (good)
+----- TEXT:
+The focus of the report is on the operation, evolution, and growth of the CBTF.   The growth in capacity and demand for the CBTF is evidence of success.
+----------- Contribution & Impact (ERT) -----------
+SCORE: 4 (good)
+----- TEXT:
+As more and more institutions are moving to CBTs, for a variety of reasons, having a road map and a list of potential pitfalls to avoid similar issues is very useful.  This is a very transferrable experience report.
+----------- Presentation (ERT) -----------
+SCORE: 4 (good)
+----- TEXT:
+The report is well written and clear.  I found one typo in the first line of the second column on page 4.  E.g., (using CBTF-provided headphones, not their own). proctor- Once
+----------- Overall evaluation -----------
+The report provides concrete and transferrable lessons for setting up of a CBTF facility.  The paper is well motivated and useful in the current education context.
+
+For future work, I would recommend an exit survey for students and/or faculty to quantify satisfaction with the facility and identify future avenues for improvement.
+
+
+----------------------- REVIEW 2 ---------------------
+
+SUBMISSION: 56
+TITLE: Bootstrapping a Computer-Based Testing Facility Using Shared Lab Space
+
+----------- Summary -----------
+The paper show cased an approach to transform a shared lab to own or dedicated space lab for computer based testing facilities. The paper described challenges and points to consider for others when they want to implement similar lab space.
+The paper mentioned about 4 key items and lessons they learned.
+1. physical configuration
+2. Computing infrastructure, networking and Hardware.
+4. Operations
+----------- Motivation (ERT) -----------
+SCORE: 4 (good)
+----- TEXT:
+The motivation of this paper is clear and approached well to meet the desired goal. It explains the challenges and lessons learned to increase operations growth by 120% per semester and served over 5000 students within three years.
+----------- Prior and Related Work (ERT) -----------
+SCORE: 3 (fair)
+----- TEXT:
+The Author has referred a successful method that was used at UIUC as a prior work and there is no good data points on what are prior work exists on shared lab env (infra/facilities/technologies) and what have improved over the years.
+----------- Approach (ERT) -----------
+SCORE: 4 (good)
+----- TEXT:
+The approach is well described in the paper. Creating a computer lab space , especially like CBTF, which requires a systematic approach. Author has described all possible scenarios and described each in induvial sections. There are key items for someone to consider when planning to similar setup.
+----------- Evidence (ERT) -----------
+SCORE: 3 (fair)
+----- TEXT:
+The paper provided retro of the project, what worked well and what didn't work. no much data on evidence report available in the paper apart from growth increased in within 3 years and plan to expand 100 seated in fall 2026.
+----------- Contribution & Impact (ERT) -----------
+SCORE: 4 (good)
+----- TEXT:
+Each campus must required a computer testing lab for students and it required to consider several aspects, like multi factor authentication which conflict with test center mobile policies, shared desk with other students and clean/sanitization process etc.. Author shall consider to use leverage available technologies like digital twin and other tools/software to enhance testing center experience and data security. Other universities can referred this paper for successful CBTF setup establishment.
+----------- Presentation (ERT) -----------
+SCORE: 3 (fair)
+----- TEXT:
+The presentation can be improved with small corrections. like, adding a workflow diagrams, steps to achieve the goal will give better preview of the process. there are lot of process flow involved in this paper , however, it can be presented in workflow diagrams.
+
+Figure1 should belongs to introduction section, not below the heading.
+----------- Overall evaluation -----------
+Recommendation are
+1.Move the figure 1 from main page to introduction. the paper main page shows lab space, which is bit unusual.
+2.Add process flow diagram ex: process steps to establish computer lab and network, security etc..
+
+
+----------------------- REVIEW 3 ---------------------
+
+SUBMISSION: 56
+TITLE: Bootstrapping a Computer-Based Testing Facility Using Shared Lab Space
+
+----------- Summary -----------
+This is an excellent paper about spinning up a computer-based testing facility under realistic constraints. It covers concrete challenges related to space, technical security, buy-in, and bureaucracy. A major strength is that it explains how the facility evolved over time instead of only describing the final setup. Overall, the paper is practical, clear, and directly useful for readers working on similar efforts.
+----------- Motivation (ERT) -----------
+SCORE: 5 (excellent)
+----- TEXT:
+The paper is well motivated. It addresses practical challenges related to space, technical security, buy-in, and bureaucracy.
+----------- Prior and Related Work (ERT) -----------
+SCORE: 4 (good)
+----- TEXT:
+The paper includes appropriate references on computer-based testing.
+It also clearly highlights this paper's contribution relative to the nearest analogue (reference [4]).
+----------- Approach (ERT) -----------
+SCORE: 5 (excellent)
+----- TEXT:
+The experience is well described. I especially appreciate that the paper describes the evolution of the facility over time, not just its final state.
+----------- Evidence (ERT) -----------
+SCORE: 4 (good)
+----- TEXT:
+The paper provides a rich reflection on what worked and why. Its claims are appropriately scoped and do not go beyond the evidence presented.
+----------- Contribution & Impact (ERT) -----------
+SCORE: 5 (excellent)
+----- TEXT:
+The paper offers immediately useful, practice-oriented guidance for people building similar facilities. As someone earlier in a similar journey, I found ideas and lessons that I can use immediately.
+----------- Presentation (ERT) -----------
+SCORE: 5 (excellent)
+----- TEXT:
+The paper is well written and well organized.
+----------- Overall evaluation -----------
+This is a strong paper with clear value for the SIGCSE community. Its main strengths are its realistic treatment of constraints, its clear motivation, and its transparent account of how the testing facility evolved over time. The paper is also well organized and easy to follow, which helps the reader understand both the decisions made and their rationale.
+
+The prior and related work section is appropriate for this paper type and clearly positions the contribution relative to the nearest analogue (reference [4]). The evidence is aligned with ERT expectations.
+
+I do not have much feedback because the submission is already strong.
+
+
+----------------------- REVIEW 4 ---------------------
+
+SUBMISSION: 56
+TITLE: Bootstrapping a Computer-Based Testing Facility Using Shared Lab Space
+
+----------- Summary -----------
+The paper is an experience report sharing insights from deploying a Computer-based Testing Facility for 2-years.
+----------- Motivation (ERT) -----------
+SCORE: 5 (excellent)
+----- TEXT:
+The motivation for the work is to provide other universities with lessons learned to aid in the deployment of testing facilities at other universities. The work is also a basis for a replication study of the UIUC testing center.
+----------- Prior and Related Work (ERT) -----------
+SCORE: 5 (excellent)
+----- TEXT:
+The related work references works on prior testing center creation and mastery grading. The relationship between the prior centers and these experiences are clearly stated throughout the paper.
+----------- Approach (ERT) -----------
+SCORE: 5 (excellent)
+----- TEXT:
+The experience of running the testing center is clearly described in well-defined subsections. The paper provides clear guidance on the tools used and the lessons learned from the deployment. The paper provides reasonable assessment by providing clear consequences of the lesson learned and how they addressed the concern within their center.
+----------- Evidence (ERT) -----------
+SCORE: 4 (good)
+----- TEXT:
+The paper provides evidence in a descriptive and narrative form. The paper clearly denotes what worked and did not work within their testing center, clearly illuminating pitfalls of choices and remedies deployed or advice on approaches to deploy.
+----------- Contribution & Impact (ERT) -----------
+SCORE: 5 (excellent)
+----- TEXT:
+Overall this experience report will benefit the SIGCSE community and any university looking to deploy computer based testing centers within their program. The work is timely based on the on-going challenges programs are facing with the rise of AI usage. The work clearly enables faster adoption by others.
+----------- Presentation (ERT) -----------
+SCORE: 4 (good)
+----- TEXT:
+There are a number of typos sprinkled throughout the paper. Additionally, the writing style is more conversational than formal.
+----------- Overall evaluation -----------
+Overall, the paper presents a strong set of lessons learned from deployment of a testing center on their campus. Additionally, the work presents the challenges of scaling the center over time. The paper is very relevant to the SIGCSE community and to any university looking to deploy a testing center for their courses. All aspects of the testing center are presented with their solution and the lessons learned.
+
+Minor typos:
+- "UIUC.)a A" on page 2, section 2.1
+- "proctor -" on page 4, Section 3.3
+- "in to" on page 4, Section 3.3
+- "is the is the" on page 4, section 3.3
+- "whie" on page 6, section 6
