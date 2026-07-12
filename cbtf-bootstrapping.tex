@@ -3,6 +3,7 @@
 \usepackage{color}
 \usepackage{graphicx}
 \usepackage{url}
+\usepackage{balance}
 
 % \usepackage{draftwatermark}\SetWatermarkFontSize{4cm}\SetWatermarkText{DRAFT v4.29}
 
@@ -18,23 +19,19 @@
 %% values in them; it is your responsibility as an author to replace
 %% the commands and values with those provided to you when you
 %% complete the rights form.
-\setcopyright{acmcopyright}
 \copyrightyear{2026}
 \acmYear{2026}
-\acmDOI{XXXXXXX.XXXXXXX}
+\setcopyright{cc}
+\setcctype{by}
+\acmConference[SIGCSE Virtual 2026] {Proceedings of the 2nd ACM Virtual Global Computing Education Conference V.1}{November 12--15, 2026}{Virtual Event, USA.}
+\acmBooktitle{Proceedings of the 2nd ACM Virtual Global Computing Education Conference V.1 (SIGCSE Virtual 2026), November 12--15, 2026, Virtual Event, USA}
+\acmISBN{979-8-4007-2506-7/2026/11}
+\acmDOI{10.1145/3795867.3830974}
+% 1 Authors, replace the red X's with your assigned DOI string during the rightsreview eform process.
+% 2 Your DOI link will become active when the proceedings appears in the DL.
+% 3 Retain the DOI string between the curly braces for uploading your promo video.
 
-%% These commands are for a PROCEEDINGS abstract or paper.
-\acmConference[SIGCSE Virtual '26]{The 2nd ACM Virtual Global
-  Computing Education Conference}{November 12--15, 2026}{}
-%
-%  Uncomment \acmBooktitle if th title of the proceedings is different
-%  from ``Proceedings of ...''!
-%
-%\acmBooktitle{Woodstock '18: ACM Symposium on Neural Gaze Detection,
-%  June 03--05, 2018, Woodstock, NY} 
-\acmPrice{15.00}
-\acmISBN{978-1-4503-XXXX-X/18/06}
-
+\settopmatter{printacmref=true}
 
 %%
 %% Submission ID.
@@ -135,6 +132,7 @@
 \input{acks}
 
 \bibliographystyle{plain}
+\balance
 \bibliography{cbtf-bootstrapping}
 
 \end{document}
