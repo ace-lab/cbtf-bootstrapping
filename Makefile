@@ -12,6 +12,9 @@ all: $(OUT).pdf
 copy: $(OUT).pdf
 	cp $(OUT).pdf '$(DSTDIR)'
 
+zip: $(OUT).zip
+	cd ..  &&  zip -r cbtf-bootstrapping.zip cbtf-bootstrapping/ -x cbtf-bootstrapping/.git/\*
+
 .DELETE_ON_ERROR:
 $(OUT).pdf: $(SRCS) $(OUT).bib
 	$(TEX) $(OUT)

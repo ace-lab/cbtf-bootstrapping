@@ -1,0 +1,112 @@
+// ACM submit form data for submit ID v1fp056
+// submit link:
+// https://www.scomminc.com/acm/submissions/submission.cfm?grid=virtual&eid=45025646010205&eid2=670204
+
+// text abstract
+
+As part of a larger research agenda focused on mastery learning,
+we were inspired by the benefits of Computer-Based Testing Facilities (CBTFs)
+reported by
+the University of Illinois at Urbana-Champaign,
+and in Fall 2023 we decided to pilot such a facility ourselves.
+If successful, we intended to scale up and eventually serve
+the whole campus, not just one or two CS courses. 
+Three years later, our CBTF operation has grown by
+120%  per semester in seated exam-hours, and now serves
+over 5,000 students in departments across campus.
+Bootstrapping the initial effort led to important lessons—some
+evident only with distant hindsight and the need to scale—from which we hope others
+might benefit.
+Our three main takeaways are as follows.
+First, even in a small pilot, avoid adopting
+processes that won't scale,
+since student and faculty expectations are heavily influenced by the
+  policies and procedures established during the pilot phase.
+Second, on most campuses no unit “owns” exam administration: facilities,
+disabled-student accommodations,
+instructional technology, and so on are distributed, so you will have to create new
+administrative processes, disrupt existing ones, correct mistaken
+faculty assumptions, and coordinate across nonporous administrative
+boundaries.
+Third, our experience shows that the model developed organically and incrementally at
+UIUC over several years can be adapted successfully to other
+institutions, even under nontrivial bureaucratic, cultural, and space
+constraints, without boiling the ocean all at once. 
+
+
+
+// CCSXML
+
+<ccs2012>
+   <concept>
+       <concept_id>10003456.10003457.10003527.10003540</concept_id>
+       <concept_desc>Social and professional topics~Student assessment</concept_desc>
+       <concept_significance>500</concept_significance>
+       </concept>
+ </ccs2012>
+
+
+// keywords
+
+Computer-based testing; Mastery learning; Summative assessment
+
+
+
+// References/citations
+
+\begin{thebibliography}{1}
+
+\bibitem{Bloom68}
+Benjamin~S. Bloom.
+\newblock Learning for mastery. instruction and curriculum. regional education
+  laboratory for the carolina and virginia, topical papers and reprints, number
+  1.
+\newblock {\em Evaluation comment}, 1(2):n2, 1968.
+
+\bibitem{twolane}
+Adam Bridgeman and Danny Liu.
+\newblock Frequenty asked questions about the two-lane approach to assessment
+  in the age of {AI}, July 2024.
+
+\bibitem{chen-how-much-randomization}
+Binglin Chen, Matthew West, and Craig Zilles.
+\newblock How much randomization is needed to deter collaborative cheating on
+  asynchronous exams?
+\newblock In {\em Proceedings of the Fifth Annual ACM Conference on Learning at
+  Scale}, L@S '18, New York, NY, USA, 2018. Association for Computing
+  Machinery.
+
+\bibitem{downey-cbtf}
+Kelly Downey, Kris Miller, Mariana Silva, and Craig Zilles.
+\newblock One solution to addressing assessment logistical problems: An
+  experience setting up and operating an in-person testing center.
+\newblock In {\em Proceedings of the 55th ACM Technical Symposium on Computer
+  Science Education V. 1}, SIGCSE 2024, page 317–323, New York, NY, USA,
+  2024. Association for Computing Machinery.
+
+\bibitem{garcia-asforall}
+Dan Garcia, Connor McMahon, Yuan Garcia, Matthew West, and Craig Zilles.
+\newblock Achieving "{A}'s for {A}ll (as time and interest allow)".
+\newblock In {\em Proceedings of the Ninth ACM Conference on Learning @ Scale},
+  L@S '22, page 255–258, New York, NY, USA, 2022. Association for Computing
+  Machinery.
+
+\bibitem{guskey2007closing}
+Thomas~R. Guskey.
+\newblock Closing achievement gaps: Revisiting benjamin s. bloom’s ``learning
+  for mastery''.
+\newblock {\em Journal of Advanced Academics}, 19(1):8--31, 2007.
+
+\bibitem{secondchanceexams}
+Jason~W. Morphew, Mariana Silva, Geoffrey Herman, and Matthew West.
+\newblock Frequent mastery testing with second-chance exams leads to enhanced
+  student learning in undergraduate engineering.
+\newblock {\em Applied Cognitive Psychology}, 34(1):168--181, 2020.
+
+\bibitem{zilles-testing-less-trying}
+Craig Zilles, Matthew West, David Mussulman, and Timothy Bretl.
+\newblock Making testing less trying: Lessons learned from operating a
+  computer-based testing facility.
+\newblock In {\em {FIE} 2018}, 2018.
+
+\end{thebibliography}
