@@ -9,9 +9,13 @@
 
 Although 
 Canvas\footnote{instructure.com/canvas} is our official
-campuswide Learning Management System, we found it too limited
-for both assessment authoring and assessment
-delivery (Section~\ref{sec:networking} describes the latter).
+campuswide Learning Management System,
+we found its assessment-authoring facilities primitive and (as
+Section~\ref{sec:networking} describes) its assessment-delivery
+mechanisms insecure.
+%% we found it too limited
+%% for both assessment authoring and assessment
+%% delivery (Section~\ref{sec:networking} describes the latter).
 In contrast, we found much to admire about 
 PrairieLearn and
 intended to use it.
@@ -26,21 +30,19 @@ PrairieLearn represented a brand-new set of tools and
 workflows for them, and their time and budget are tight.
 Even with light usage, smooth operation during exams is
 mission-critical and required ``on-call'' time from our already busy
-IT staff to scale cloud capacity manually when large exams were coming up.
+IT staff to scale cloud capacity manually when large exams were scheduled.
 Cloud provisioning was further complicated by having to manage Docker
 containers for custom autograders, on which our CS course relied heavily.
-Finally, when we had trouble with either system operations or
+Finally, when we needed technical support for either system operations or
 using a feature correctly,
-we had no ``tech
-support'':
-the PrairieLearn community (on Slack) and the PrairieLearn.com staff were
-extremely helpful, but
+although the PrairieLearn community (on Slack) and the PrairieLearn.com staff were
+extremely helpful, 
 they had no visibility into our configuration to help
 troubleshoot specific problems.
 PrairieLearn
 hosting would have eliminated all of these concerns.
 \footnote{As a caveat, as of this writing, a course requiring custom
-external grading containers costs twice as much per hosted seat as one that doesn't.}
+external grading containers costs about twice as much per hosted seat as one that doesn't.}
 
 \label{sec:reservations}
 Finally, the open-source software does not include PrairieTest,
@@ -59,30 +61,34 @@ those individuals have to authenticate themselves to make a
 reservation at all, and if the authentication can be somehow mapped to
 their campus identity).
 Second, students with reduced-distraction accommodations must be
-handled separately, whether using the traditional (for us) method of filling
-a room to only $1/3$ or $1/2$ capacity or the reduced-distraction test
+handled separately, whether using the traditional (for us) method of underfilling
+a room or the reduced-distraction test
 station configuration we developed later.
-PrairieTest would have solved both problems out-of-the-box.
+PrairieTest would have solved both problems out-of-the-box,
+and eliminated learning an intermediate throwaway workflow.
 
 \subsection{Network: Not Just Firewalls}
 \label{sec:networking}
 
 \lesson{Firewalls aren't enough for secure assessment delivery:
-  it also requires the LMS to be secure, and many aren't.}
+  the LMS must also be secure, and many aren't.}
 
-Since each instructional lab had its own IPv4 subnet, it was easy to
-configure  the campus-level firewall to
-lock out most of the
-Internet when accessed from one of the labs, except for the servers
-needed to access PrairieLearn exams. 
+Since each instructional lab had its own IPv4 subnet,
+it was straightforward to configure the firewall to allow access to
+PrairieLearn only.
+%% it was easy to
+%% configure  the campus-level firewall to
+%% lock out most of the
+%% Internet when accessed from one of the labs, except for the servers
+%% needed to access PrairieLearn exams. 
 One
-caveat regarding the firewall configuration was that attempting to access
+caveat regarding the firewall was that attempting to access
 any blocked site resulted in the same error message one would see if
 there were no Internet connection at all.
 Some students would make a typo in accessing PrairieTest, see this error, and report to the proctor that their
 computer had no Internet.  This occurred numerous times despite the
 fact that upon signing in, 
-there was an immediate and obvious desktop
+there was an immediate and (we thought) obvious desktop
 shortcut that students were instructed to use to access PrairieTest.
 
 However, firewalling isn't enough to deliver secure exams.  
@@ -94,9 +100,10 @@ Specifically, our requirements for a secure exam are:
   spaces.  Canvas supports this constraint.
 
 \item A student cannot peek at exam B while taking exam A.
-    Canvas does not gracefully
-    support this constraint except by manually or programmatically editing each student's
-    allowed access-time window for both A and B.
+    Canvas only
+    supports this constraint by editing each student's
+    allowed access-time window for both A and B,
+    which is clumsy if not all students take an exam together.
 
  \item  Non-exam course materials must simultaneously be accessible to
    students outside the CBTF but inaccessible to students in the CBTF.
@@ -105,7 +112,8 @@ Specifically, our requirements for a secure exam are:
 \end{enumerate}
 
 Some colleagues have reported using lockdown browsers such as
-Respondus to secure other LMSs, but this leads to (at least) two problems.
+Respondus\footnote{\url{https://web.respondus.com/he/lockdownbrowser/}}
+to secure other LMSs, but this leads to (at least) two problems.
 First, a lockdown browser must be licensed, installed, and configured to work
 with each particular LMS---an $M\times N$ problem.  Second,
 having the lockdown browser ``plug holes'' left open by the LMS is error-fraught:
@@ -128,7 +136,7 @@ designed to deliver  assessments securely, as PrairieLearn is.
   software likes them.}
 
 The shared labs' computers were several generations old and running
-Windows~10, largely because of the Microsoft-centric
+Windows~10, largely because of our institutions' Microsoft-centric
 infrastructure for imaging and maintaining computers across several
 centrally-managed labs.   
 Fortunately, PrairieLearn requires only a browser on the client side
@@ -139,27 +147,27 @@ the browser GUI and accessibility.
 When we later acquired dedicated CBTF space, 
 we purchased mini-PCs online for around US\$500 each, fully equipped.
 
-When students sit for an exam, they begin by signing in to
-an institutional Windows login profile whose
+When students sit for an exam, they first sign in to
+an institutional Windows profile whose
 password is publicly known.
-This profile is only available for login inside CBTF rooms, is configured with  the
-necessary firewall rules, anddisables
+This profile is only available inside CBTF rooms, is configured with  the
+necessary firewall rules, and disables
 software installation, filesystem access, and USB ports
 (to prevent students bringing USB-borne materials
-to an exam).  It has virtually no software installed other than a Web
+to an exam).  It has no software installed other than a Web
 browser and some audio files of white noise for students
 who want to block out audio distractions (using CBTF-provided
 headphones, not their own).
-Once students have signed in to this profile, they can access their
+Once students sign in to this profile, they can access their
 exam reservation via PrairieTest; indeed, this profile 
 is the only way to access in-CBTF exams at all.
-
 We use DeepFreeze\footnote{https://www.faronics.com/products/deep-freeze}
 to restore each computer to a pristine state upon logout to prevent
 leaking of cookies, files, and so forth.
 
-When scheduling reservations, we always left 1 or 2 machines free in
-each room in case of hardware malfunction during an exam, which
+We always left 1 or 2 computers unscheduled in
+each room and had spare keyboards and mice available
+in case of hardware malfunction during an exam, which
 happened once or twice.
 
 
@@ -174,16 +182,16 @@ However, as a matter of campus policy, most
 SSO logins can trigger a 2FA flow
 to complete login.
 The most common way to complete 2FA is to respond to a challenge on one's
-cell phone via a particular campus-provided app, but there are
+mobile phone via a particular campus-provided app, but there are
 other ways as well.  The 2FA requirement led to
 various failure modes when students tried to login for an exam:
 
 \begin{itemize}
 
-\item Wifi and/or cellular data coverage is weak in the basement where
+\item Wi-Fi and/or cellular data coverage is weak in the basement where
   the labs are (recall the CBTF computers use wired Ethernet), so the phone
   cannot complete the 2FA flow.
-\item The student recently obtained a new cell phone and has not yet
+\item The student recently obtained a new phone and has not yet
   installed the 2FA app.
 \item The student normally uses a different method to complete 2FA,
   such as a physical USB token, tablet, or biometric-capable device,
