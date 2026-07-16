@@ -4,34 +4,30 @@
 
 // text abstract
 
-As part of a larger research agenda focused on mastery learning,
-we were inspired by the benefits of Computer-Based Testing Facilities (CBTFs)
-reported by
-the University of Illinois at Urbana-Champaign,
-and in Fall 2023 we decided to pilot such a facility ourselves.
-If successful, we intended to scale up and eventually serve
-the whole campus, not just one or two CS courses. 
-Three years later, our CBTF operation has grown by
-120%  per semester in seated exam-hours, and now serves
-over 5,000 students in departments across campus.
-Bootstrapping the initial effort led to important lessons—some
-evident only with distant hindsight and the need to scale—from which we hope others
-might benefit.
-Our three main takeaways are as follows.
-First, even in a small pilot, avoid adopting
-processes that won't scale,
-since student and faculty expectations are heavily influenced by the
-  policies and procedures established during the pilot phase.
-Second, on most campuses no unit “owns” exam administration: facilities,
-disabled-student accommodations,
-instructional technology, and so on are distributed, so you will have to create new
+As part of a larger research agenda focused on mastery learning, we
+were inspired by the benefits of Computer-Based Testing Facilities
+(CBTFs) reported by the University of Illinois at Urbana-Champaign,
+and in Fall 2023 we decided to pilot such a facility ourselves.  If
+successful, we intended to scale up and eventually serve the whole
+campus, not just one or two CS courses.  Three years later, our CBTF
+operation has grown by 120% per semester in seated exam-hours, and now
+serves over 5,000 students in departments across campus.
+Bootstrapping the initial effort led to important lessons—some evident
+only with distant hindsight and the need to scale—from which we hope
+others might benefit.  Our three main takeaways are as follows.
+First, even in a small pilot, avoid adopting processes that won't
+scale, since student and faculty expectations are heavily influenced
+by the policies and procedures established during the pilot phase.
+Second, on most campuses no unit “owns” exam administration:
+facilities, disabled-student accommodations, instructional technology,
+and so on are distributed, so you will have to create new
 administrative processes, disrupt existing ones, correct mistaken
 faculty assumptions, and coordinate across nonporous administrative
-boundaries.
-Third, our experience shows that the model developed organically and incrementally at
-UIUC over several years can be adapted successfully to other
-institutions, even under nontrivial bureaucratic, cultural, and space
-constraints, without boiling the ocean all at once. 
+boundaries.  Third, our experience shows that the model developed
+organically and incrementally at UIUC over several years can be
+adapted successfully to other institutions, even under nontrivial
+bureaucratic, cultural, and space constraints, without boiling the
+ocean all at once.
 
 
 
