@@ -1,0 +1,552 @@
+﻿WEBVTT
+
+NOTE
+STYLE
+   ::cue {
+   font-family: Arial;
+   font-size: 32;
+   font-weight: normal;
+   color: #ffffff;
+   background-color: #000000;
+}
+
+1
+00:00:00.000 --> 00:00:06.289
+Hello, I'm Armando Fox from UC Berkeley and today I have the pleasure of telling you about
+
+2
+00:00:06.289 --> 00:00:12.418
+our experience bootstrapping a computer-based testing facility using shared lab space.
+
+3
+00:00:12.419 --> 00:00:18.583
+I encourage you to read the paper if you are not familiar with the benefits of computer-based testing, but by computer-based
+
+4
+00:00:18.583 --> 00:00:24.788
+testing facility, I'm talking about a facility for administering computer-based exams, whether they're manually
+
+5
+00:00:24.788 --> 00:00:30.799
+graded or machine-graded, and a few of the important reasons to do this, which we discuss in the paper and I will
+
+6
+00:00:30.799 --> 00:00:36.926
+not discuss further in this talk. The Proctors in our system are non-academic student workers, as opposed
+
+7
+00:00:36.927 --> 00:00:42.977
+to instructors or teaching assistants. The facility is centrally managed with locked-down computers that
+
+8
+00:00:42.977 --> 00:00:49.144
+are connected permanently to our wired network. The exams are all fixed length, a uniform length of one hour
+
+9
+00:00:49.144 --> 00:00:55.863
+during the semester, or two hours during finals week, and taken over a two or typically three-day window,
+
+10
+00:00:55.864 --> 00:01:01.931
+and we use PrairieLearn as the software for administering and authoring the exams. All of these
+
+11
+00:01:01.931 --> 00:01:07.954
+choices and important reasons why we chose them are justified in the paper. I'd like to
+
+12
+00:01:07.954 --> 00:01:14.570
+give you two major takeaways from our work. The first is: probably no single unit at your institution
+
+13
+00:01:14.571 --> 00:01:20.642
+owns exam administration. Exam administration involves physical space, it involves proctors,
+
+14
+00:01:20.642 --> 00:01:26.780
+it involves software if computers are involved, it involves accommodating students with disabilities. All of these
+
+15
+00:01:26.781 --> 00:01:32.967
+are usually distributed across different departments. So, to stand up a computer-based testing facility you will need
+
+16
+00:01:32.967 --> 00:01:39.391
+to coordinate across stakeholder boundaries and across units that normally do not collaborate closely with each
+
+17
+00:01:39.392 --> 00:01:46.877
+other. And at the same time you'll have to tailor your messaging to each of those different stakeholders in order to move your agenda forward.
+
+18
+00:01:46.877 --> 00:01:52.893
+The second takeaway is: even though I'm going to describe how we scaled up to a much larger facility, you
+
+19
+00:01:52.893 --> 00:01:59.332
+don't have to do that to get most of the benefits. This is not an all or nothing  endeavor. It's an all or something endeavor.
+
+20
+00:01:59.333 --> 00:02:05.467
+A lot of the benefits appear at smaller scale and the devil is in the details, which is why I hope that this talk will encourage
+
+21
+00:02:05.467 --> 00:02:11.516
+you to read the paper to get those details. Let me briefly give you an overview of where we
+
+22
+00:02:11.516 --> 00:02:18.031
+started and where we got to. For the first time in fall of 2023 we decided to try computer-based
+
+23
+00:02:18.032 --> 00:02:24.264
+exams and we reserved partial time in two shared lab facilities that you can see here. They're unremarkable
+
+24
+00:02:24.264 --> 00:02:30.835
+computer labs with wired desktop computers at each workstation. And initially we began with two labs having
+
+25
+00:02:30.836 --> 00:02:37.227
+a total of about 55 seats between them; a single course run by me, with an enrollment of a little over 200
+
+26
+00:02:37.227 --> 00:02:43.480
+students; we only used the facility for the final exam, which at that time was two and a half hours.
+
+27
+00:02:43.481 --> 00:02:50.247
+That accounts for about 700 student exam hours given that a few students need extra time due to a disability.
+
+28
+00:02:50.248 --> 00:02:56.276
+The exam was proctored by the course staff from my own course and the entire process was overseen by
+
+29
+00:02:56.277 --> 00:03:02.372
+my co-instructor and me. And the operations were funded by a research grant on mastery
+
+30
+00:03:02.372 --> 00:03:08.531
+learning. So this really began as a pilot, funded as a research project and operated within the scope of one small
+
+31
+00:03:08.531 --> 00:03:14.611
+course. Three years later, in Fall 2026, you can see a photo of our newly opened
+
+32
+00:03:14.612 --> 00:03:20.697
+100-seat permanent computer-based testing facility which is open 40 hours a week, and we're aiming to open it more
+
+33
+00:03:20.697 --> 00:03:26.763
+in the spring semester. We're currently serving 24 courses and over 10,000 unique Berkeley
+
+34
+00:03:26.764 --> 00:03:33.026
+undergraduates have gone through the facility at this point in this semester. That's more than a quarter of our total undergraduate
+
+35
+00:03:33.026 --> 00:03:39.306
+population. Over 100 exams are scheduled, accounting for about 40,000 seated
+
+36
+00:03:39.306 --> 00:03:45.688
+student-exam-hours. The proctors are non-academic hourly student workers. They are not teaching assistants
+
+37
+00:03:45.688 --> 00:03:52.170
+or instructors, and the paper describes why this is an important choice. We now have a full-time
+
+38
+00:03:52.171 --> 00:03:58.591
+career employee who is managing this facility and we'll soon have additional staff there. And the entire service
+
+39
+00:03:58.591 --> 00:04:05.551
+is funded by the central IT unit of campus -- our information technology and instructional technology unit.
+
+40
+00:04:05.552 --> 00:04:11.653
+So, how did we achieve that scale-up? One thing that we had to figure out is
+
+41
+00:04:11.653 --> 00:04:17.698
+a chicken and egg problem, as we call it. On the one hand, we wanted to recruit instructors because
+
+42
+00:04:17.699 --> 00:04:23.929
+we needed to demonstrate to campus that with a successful pilot, there would be demand to expand and centrally
+
+43
+00:04:23.929 --> 00:04:29.943
+fund this facility. So, our message to instructors was: Let's show demand to the institution that will
+
+44
+00:04:29.943 --> 00:04:36.284
+get us an institutional commitment. Of course, as with any new technology, there are instructors
+
+45
+00:04:36.284 --> 00:04:42.620
+who were eager to adopt it early, there were instructors who were extremely skeptical, and there's a large middle ground.
+
+46
+00:04:42.621 --> 00:04:48.678
+Obviously, we went after the early adopters first, to try to build our support base. We started
+
+47
+00:04:48.678 --> 00:04:54.806
+incrementally by migrating homeworks and low-stakes quizzes before doing real exams, and we helped instructors
+
+48
+00:04:54.807 --> 00:05:01.361
+with this process by handholding them quite a bit. One lesson we learned in that is that the value proposition
+
+49
+00:05:01.361 --> 00:05:07.470
+to instructors for migrating to this format is much more obvious than it is for teaching assistants. Most teaching
+
+50
+00:05:07.470 --> 00:05:13.538
+assistants do not stay with the course for longer than one or two semesters, whereas most instructors have to steward it into
+
+51
+00:05:13.539 --> 00:05:20.013
+the future. Now, at the same time as we were recruiting instructors, we were also lobbying the institution.
+
+52
+00:05:20.013 --> 00:05:26.543
+And our message to the institution was: Unless there's a commitment of institutional support, it's going to be difficult to get instructors
+
+53
+00:05:26.543 --> 00:05:33.055
+to sign on. They won't want to invest time in creating new content that might not be useful in a couple of years.
+
+54
+00:05:33.056 --> 00:05:39.460
+So, our lesson there was that there are multiple stakeholders involved in making this happen—I'll talk about a few of them in a moment—
+
+55
+00:05:39.460 --> 00:05:45.660
+and every opportunity to message a small success to one or multiple of those stakeholders, in terms that they can understand,
+
+56
+00:05:45.660 --> 00:05:49.499
+is one more way that you can advance this agenda.
+
+57
+00:05:49.500 --> 00:05:56.013
+We can divide our experience into two periods: the bootstrap phase and the growth phase.
+
+58
+00:05:56.013 --> 00:06:02.026
+We started during the pandemic in 2020 and were able to secure internal "micro-grants" from the university
+
+59
+00:06:02.027 --> 00:06:08.907
+to develop assessments for mastery learning. Those would be the exact type of assessments needed to administer computer-based
+
+60
+00:06:08.908 --> 00:06:15.031
+exams, as our paper describes. The success in doing that and deploying it in a couple of courses allowed us to
+
+61
+00:06:15.031 --> 00:06:21.619
+get a much larger grant from the California Education Learning Lab, which allowed us to start configuring our own local servers
+
+62
+00:06:21.620 --> 00:06:27.913
+around the open source PrairieLearn software, while students were still stuck at home but could take quizzes through
+
+63
+00:06:27.913 --> 00:06:34.362
+PrairieLearn proctored by webcam. We began a search for physical space to move those assessments to,
+
+64
+00:06:34.362 --> 00:06:40.595
+once the lockdown had ended, and we were in the meantime able to get a scale-up grant by demonstrating that
+
+65
+00:06:40.596 --> 00:06:46.601
+we could scale up our success in small courses to much larger courses and many more students in departments
+
+66
+00:06:46.601 --> 00:06:52.823
+if we had more resources. And finally, we located the space, these shared labs that I showed
+
+67
+00:06:52.824 --> 00:06:58.499
+you earlier, where at least one course could pilot doing a single exam in the CBTF format. 
+
+68
+00:06:58.500 --> 00:06:58.704
+a 30 space. A 30,
+
+69
+00:06:58.704 --> 00:07:04.841
+the success of that phase began a growth phase in spring 2024 when we were still using a shared lab
+
+70
+00:07:04.841 --> 00:07:10.907
+facility and hosting our own PrairieLearn servers to getting a dedicated 30-seat lab to
+
+71
+00:07:10.907 --> 00:07:17.416
+use as a computer-based testing facility. The decision was then made that we were going to transfer dev/ops
+
+72
+00:07:17.417 --> 00:07:23.802
+to PrairieLearn.com and pay for hosted service rather than continuing to host it ourselves. The paper explains
+
+73
+00:07:23.802 --> 00:07:29.999
+this choice in more detail. In Fall 2025, we were miraculously able to find a large
+
+74
+00:07:30.000 --> 00:07:36.410
+space that we would be able to take over to build the 100-seat facility that opened in Fall 2026,
+
+75
+00:07:36.410 --> 00:07:39.066
+just a few weeks ago as this talk is being recorded. 
+
+76
+00:07:39.066 --> 00:07:41.406
+I should point out that as we were growing
+
+77
+00:07:41.407 --> 00:07:48.243
+the number of total student-exam-hours, we were also growing the number of distinct departments and courses that were using it.
+
+78
+00:07:48.244 --> 00:07:54.284
+A wide variety of courses from departments all over campus was further evidence to the administration that this was a
+
+79
+00:07:54.284 --> 00:07:57.033
+general public good that was worth supporting.
+
+80
+00:07:57.033 --> 00:08:03.589
+During the entire growth period, we constantly looked for opportunities to message our different constituencies
+
+81
+00:08:03.589 --> 00:08:10.005
+about the transformative benefits of computer-based testing. For example, for our Student Accommodations Office,
+
+82
+00:08:10.006 --> 00:08:16.447
+which handles accommodations for students who need extra time on exams, reduced distraction, and so forth,
+
+83
+00:08:16.448 --> 00:08:23.535
+we could take a lot of work off of their plate, and at the same time give more flexibility to the students that they wish to serve.
+
+84
+00:08:23.536 --> 00:08:29.583
+Instructors who are concerned about students using AI or other unauthorized resources in an unproctored
+
+85
+00:08:29.583 --> 00:08:35.741
+environment were reassured by the high academic integrity of the computer-based testing facility. And for their
+
+86
+00:08:35.741 --> 00:08:42.184
+TAs and their instructional staff, quality of life was greatly increased by not having to worry about the administration
+
+87
+00:08:42.184 --> 00:08:48.272
+of exams, the proctoring of exams, and all of the things that go along with that, allowing those TA's
+
+88
+00:08:48.272 --> 00:08:54.470
+more time to do the high-value job of teaching and working directly with students. For those of us who care
+
+89
+00:08:54.471 --> 00:09:00.655
+about equity in education, Mastery Learning, which was the research project from which all of this originally
+
+90
+00:09:00.656 --> 00:09:07.410
+sprang, is known to be a way to reduce equity gaps that result from uneven prior preparation; and computer-based
+
+91
+00:09:07.410 --> 00:09:13.727
+testing is a key ingredient that enables doing so. From the registrar's point of view, fewer
+
+92
+00:09:13.727 --> 00:09:19.948
+classrooms have to be occupied just for exam proctoring, and from the administration's point of view,
+
+93
+00:09:19.949 --> 00:09:26.066
+not only is there a cost reduction from centralizing the resources required to administer an
+
+94
+00:09:26.066 --> 00:09:32.176
+exam, but also from not having to rent out some of the large campus spaces such as gymnasia for final
+
+95
+00:09:32.176 --> 00:09:34.633
+exams during final exam week.
+
+96
+00:09:34.633 --> 00:09:41.034
+Let me next talk about some highlights of lessons we learned doing all of this. The biggest
+
+97
+00:09:41.034 --> 00:09:47.188
+one is probably to think big from the first time you start, even if you never get much larger.
+
+98
+00:09:47.188 --> 00:09:54.212
+What happens, for example, if students wait too long to schedule their exams and can't find a slot, or if they no-show for their reservations?
+
+99
+00:09:54.212 --> 00:10:00.595
+You have to have a policy that when scaled up, would not result in an unrealistic amount of work for whoever is staffing
+
+100
+00:10:00.596 --> 00:10:06.843
+and managing the CBTF. What if a faculty member modifies their exam at the last minute and causes it to break
+
+101
+00:10:06.843 --> 00:10:13.124
+or have bugs in it? There needs to be a protocol so that faculty realize they can't just restart an exam
+
+102
+00:10:13.125 --> 00:10:19.247
+or reschedule it at will, because the CBTF might be otherwise busy. Similarly, if there are
+
+103
+00:10:19.247 --> 00:10:25.347
+bugs in the exam or ambiguous questions, the faculty member must realize that it will be their responsibility to deal with
+
+104
+00:10:25.347 --> 00:10:31.445
+all of this after the exam is closed. So the first lesson from all of this is: a lot of the benefits of
+
+105
+00:10:31.446 --> 00:10:37.532
+computer-based testing facilities apply even at small scale, but it's essential that you do not
+
+106
+00:10:37.532 --> 00:10:43.599
+allow small scale to relax the expectations you set. The policies and procedures that you set at small scale are
+
+107
+00:10:43.600 --> 00:10:46.499
+very difficult to change later when you scale up.
+
+108
+00:10:46.500 --> 00:10:52.508
+Now, that lesson may not seem terribly surprising, but we did learn a few that genuinely
+
+109
+00:10:52.508 --> 00:10:58.564
+were. I'll give you a few highlights here, but again, please read the paper because there's not enough time in the talk
+
+110
+00:10:58.565 --> 00:11:04.698
+to go into these in any detail. There's many categories of lessons facing your different stakeholders. For
+
+111
+00:11:04.699 --> 00:11:10.863
+example, in terms of physical space, contrary to our expectations, a larger challenge than finding funding was
+
+112
+00:11:10.863 --> 00:11:17.328
+finding actual space to put a permanent CBTF in. This may or may not be a problem at your institution.
+
+113
+00:11:17.329 --> 00:11:23.411
+In terms of IT and networking, even though the software is open source and freely downloadable, we don't
+
+114
+00:11:23.412 --> 00:11:29.594
+recommend self-hosting. The paper explains how we reached this decision. In terms of accessibility, we learned many
+
+115
+00:11:29.594 --> 00:11:35.698
+valuable lessons, including the fact that every institution has a different workflow for how students with exam
+
+116
+00:11:35.698 --> 00:11:41.753
+accommodations are handled. Also, for most student disability offices, the model of proctoring an
+
+117
+00:11:41.753 --> 00:11:47.773
+exam for the entire class is very different from what they're accustomed to. So, work early and often with your
+
+118
+00:11:47.774 --> 00:11:54.315
+disabled students' office, to make sure that you're working in sync. At the same time, for students
+
+119
+00:11:54.315 --> 00:12:00.750
+as well as faculty, this is a brand new way of doing exams, and you will need to realize that every expectation
+
+120
+00:12:00.751 --> 00:12:07.464
+and process is going to be different for them. Faculty cannot tweak exams until the last minute. Students must self-schedule
+
+121
+00:12:07.464 --> 00:12:13.478
+when they take the exam, and they shouldn't wait too long. And as they say in marketing, you'll have to repeat these messages seven times
+
+122
+00:12:13.478 --> 00:12:20.065
+before they're really heard and retained. And finally, literally walk through every procedure.
+
+123
+00:12:20.066 --> 00:12:26.598
+Can the students get to the testing center? Does the building require special access after hours? Make sure every stakeholder's
+
+124
+00:12:26.599 --> 00:12:31.966
+experience has actually been dry-run to avoid some of the "gotchas" that we describe in the paper.
+
+125
+00:12:31.966 --> 00:12:38.115
+I'll close with a few of the thoughts on the two takeaways that I framed initially.
+
+126
+00:12:38.116 --> 00:12:44.140
+First of all, as I said, no single unit at your institution probably owns everything associated with exam
+
+127
+00:12:44.140 --> 00:12:50.821
+administration. You will be herding cats across boundaries, but the results are well worth it.
+
+128
+00:12:50.822 --> 00:12:57.231
+Second, it's not all or nothing, it's all or something. You can do a smaller part-time CBTF,
+
+129
+00:12:57.231 --> 00:13:03.309
+you don't have to do it at scale, and you will still realize most of the benefits. Just make sure that when you are planning your
+
+130
+00:13:03.310 --> 00:13:09.458
+policies and procedures, you plan them to scale up. And as you're scaling up, message every victory in
+
+131
+00:13:09.458 --> 00:13:15.845
+terms that each of your stakeholders can understand. They will see that there are some benefits to be had at small scale
+
+132
+00:13:15.846 --> 00:13:21.951
+and they can be transformative at large scale. If we did it at my bureaucratic institution, we're confident that
+
+133
+00:13:21.951 --> 00:13:28.236
+you can do it as well. I look forward to hearing from you, and if there's any way that I can help or provide additional information
+
+134
+00:13:28.236 --> 00:13:35.133
+beyond what's in the paper or in this talk that would help you set this up at your own institution, I'll be more than happy to do so.
+
+135
+00:13:35.133 --> 00:13:40.232
+Thank you very much for your time and attention, and GO BEARS!
+

@@ -6,3 +6,5 @@
 *.out
 comment.cut
 TAGS
+*.zip
+.DS_Store
